@@ -38,7 +38,7 @@ public class userDaoTest {
     public void insertUserTest() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         userDao = sqlSession.getMapper(UserDao.class);
-        User user = new User("18051102x1", "admin01", "张三", "18735803948", 1);
+        User user = new User("18051102x1", "admin01", "张三", "18735803948", 1, 0);
         int count = userDao.insertUser(user);
         System.out.println(count);
         sqlSession.commit();
@@ -48,7 +48,7 @@ public class userDaoTest {
     public void deleteUserTest() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         userDao = sqlSession.getMapper(UserDao.class);
-        int count = userDao.deleteUser(2);
+        int count = userDao.deleteUser(3);
         System.out.println(count);
         sqlSession.commit();
     }
@@ -57,10 +57,19 @@ public class userDaoTest {
     public void updateUserTest() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         userDao = sqlSession.getMapper(UserDao.class);
-        User user = userDao.getUserById(1);
+        User user = userDao.getUserById(4);
         user.setU_password("adminwyp");
         int count = userDao.updateUser(user);
         System.out.println(count);
         sqlSession.commit();
+    }
+
+    @Test
+    public void getUserByAccountTest() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        userDao = sqlSession.getMapper(UserDao.class);
+        User user = userDao.UserLogin("1805110274","adminwyp");
+        System.out.println(user);
+        sqlSession.close();
     }
 }

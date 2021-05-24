@@ -20,4 +20,5 @@
 
     <context:component-scan base-package="edu.whpu.dao"/>
     <context:component-scan base-package="edu.whpu.service"/>
+    <context:component-scan base-package="edu.whpu.controller"/>
 </beans>

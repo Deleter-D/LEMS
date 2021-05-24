@@ -7,16 +7,18 @@ public class User {
     private String u_name;
     private String u_tele;
     private int u_facultyID;
+    private int u_identity;
 
     public User() {
     }
 
-    public User(String u_account, String u_password, String u_name, String u_tele, int u_facultyID) {
+    public User(String u_account, String u_password, String u_name, String u_tele, int u_facultyID, int u_identity) {
         this.u_account = u_account;
         this.u_password = u_password;
         this.u_name = u_name;
         this.u_tele = u_tele;
         this.u_facultyID = u_facultyID;
+        this.u_identity = u_identity;
     }
 
     public int getU_ID() {
@@ -67,6 +69,14 @@ public class User {
         this.u_facultyID = u_facultyID;
     }
 
+    public int getU_identity() {
+        return u_identity;
+    }
+
+    public void setU_identity(int u_identity) {
+        this.u_identity = u_identity;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -76,6 +86,7 @@ public class User {
                 ", u_name='" + u_name + '\'' +
                 ", u_tele='" + u_tele + '\'' +
                 ", u_facultyID=" + u_facultyID +
+                ", u_identity=" + u_identity +
                 '}';
     }
 }

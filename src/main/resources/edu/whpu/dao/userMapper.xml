@@ -12,8 +12,8 @@
         where u_id = #{u_id}
     </select>
     <insert id="insertUser" parameterType="User">
-        insert into user(u_account, u_password, u_name, u_tele, u_facultyID)
-        values (#{u_account}, #{u_password}, #{u_name}, #{u_tele}, #{u_facultyID})
+        insert into user(u_account, u_password, u_name, u_tele, u_facultyID, u_identity)
+        values (#{u_account}, #{u_password}, #{u_name}, #{u_tele}, #{u_facultyID}, #{u_identity})
     </insert>
     <delete id="deleteUser" parameterType="User">
         delete
@@ -26,7 +26,16 @@
             u_password=#{u_password},
             u_name=#{u_name},
             u_tele=#{u_tele},
-            u_facultyID=#{u_facultyID}
+            u_facultyID=#{u_facultyID},
+            u_identity=#{u_identity}
         where u_ID = #{u_ID}
     </update>
+
+    <!--服务层所需操作-->
+    <select id="UserLogin" parameterType="string" resultType="User">
+        select *
+        from user
+        where u_account = #{u_account}
+          AND u_password = #{u_password}
+    </select>
 </mapper>

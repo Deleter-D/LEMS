@@ -22,7 +22,6 @@
         <mapper resource="edu/whpu/dao/facultyMapper.xml"/>
         <mapper resource="edu/whpu/dao/userMapper.xml"/>
         <mapper resource="edu/whpu/dao/deviceMapper.xml"/>
-        <mapper resource="edu/whpu/dao/adminMapper.xml"/>
         <mapper resource="edu/whpu/dao/lpaMapper.xml"/>
         <mapper resource="edu/whpu/dao/aflpaMapper.xml"/>
         <mapper resource="edu/whpu/dao/afbMapper.xml"/>

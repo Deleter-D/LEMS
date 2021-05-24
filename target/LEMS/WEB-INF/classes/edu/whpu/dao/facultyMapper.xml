@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whpu.dao.FacultyDao">
+    <select id="getAllFaculty" resultType="Faculty">
+        select *
+        from faculty
+    </select>
+
+    <select id="getFacultyById" parameterType="int" resultType="Faculty">
+        select *
+        from faculty
+        where f_ID = #{f_ID}
+    </select>
+
+    <insert id="insertFaculty" parameterType="Faculty">
+        insert into faculty(f_name, f_deanName, f_deanTele)
+        values (#{f_name}, #{f_deanName}, #{f_deanTele})
+    </insert>
+
+    <delete id="deleteFaculty" parameterType="int">
+        delete
+        from faculty
+        where f_ID = #{f_ID}
+    </delete>
+
+    <update id="updateFaculty" parameterType="Faculty">
+        update faculty
+        set f_name=#{f_name},
+            f_deanName=#{f_deanName},
+            f_deanTele=#{f_deanTele}
+        where f_ID = #{f_ID}
+    </update>
+</mapper>

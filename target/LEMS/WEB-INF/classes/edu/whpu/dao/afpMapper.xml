@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whpu.dao.AForPDao">
+    <select id="getAllAForP" resultType="AForP">
+        select *
+        from afp
+    </select>
+    <select id="getAForPById" resultType="AForP">
+        select *
+        from afp
+        where afp_ID = #{afp_ID}
+    </select>
+    <insert id="insertAForP" parameterType="AForP">
+        insert into afp(afp_name, afp_price, afp_number, afp_dateForP, afp_manufacturer, afp_shelfLife,
+                        afp_adminID, afp_facultyID, afp_isPermited)
+        values (#{afp_name}, #{afp_price}, #{afp_number}, #{afp_dateForP}, #{afp_manufacturer}, #{afp_shelfLife},
+                #{afp_adminID}, #{afp_facultyID}, #{afp_isPermited})
+    </insert>
+    <delete id="deleteAForP" parameterType="int">
+        delete
+        from afp
+        where afp_ID = #{afp_ID}
+    </delete>
+    <update id="updateAForP" parameterType="AForP">
+        update afp
+        set afp_name=#{afp_name},
+            afp_price=#{afp_price},
+            afp_number=#{afp_number},
+            afp_dateForP=#{afp_dateForP},
+            afp_manufacturer=#{afp_manufacturer},
+            afp_shelfLife=#{afp_shelfLife},
+            afp_adminID=#{afp_adminID},
+            afp_facultyID=#{afp_facultyID},
+            afp_isPermited=#{afp_isPermited}
+        where afp_ID = #{afp_ID}
+    </update>
+</mapper>
