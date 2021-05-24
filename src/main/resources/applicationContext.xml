@@ -15,9 +15,9 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <context:component-scan base-package="edu.whpu.dao"/>
+    <context:component-scan base-package="edu.whpu.service"/>
     <import resource="spring-mvc.xml"/>
     <import resource="spring-mybatis.xml"/>
 
-    <context:component-scan base-package="edu.whpu.dao"/>
-    <context:component-scan base-package="edu.whpu.service"/>
 </beans>

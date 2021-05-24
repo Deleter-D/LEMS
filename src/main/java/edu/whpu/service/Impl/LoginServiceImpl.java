@@ -14,7 +14,7 @@ public class LoginServiceImpl implements LoginServie {
 
     @Override
     public User login(String loginname, String password) {
-        return userDao.getUserById(1);
-//        return userDao.UserLogin(loginname, password);
+//        return userDao.getUserById(1);
+        return userDao.UserLogin(loginname, password);
     }
 }

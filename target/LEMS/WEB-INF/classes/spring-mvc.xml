@@ -11,7 +11,7 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--注解扫描组件-->
-    <context:component-scan base-package="edu.whpu"/>
+    <context:component-scan base-package="edu.whpu.controller"/>
 
     <!--启动注解-->
     <mvc:annotation-driven/>
