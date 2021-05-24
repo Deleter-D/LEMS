@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whpu.dao.LPADao">
+    <select id="getAllLPA" resultType="LPA">
+        select *
+        from lpa
+    </select>
+    <select id="getLPAById" parameterType="int" resultType="LPA">
+        select *
+        from lpa
+        where lpa_ID = #{lpa_ID}
+    </select>
+    <insert id="insertLPA" parameterType="LPA">
+        insert into lpa(lpa_name, lpa_price, lpa_number, lpa_dateForP, lpa_manufacturer, lpa_shelfLife, lpa_adminID)
+        values (#{lpa_name}, #{lpa_price}, #{lpa_number}, #{lpa_dateForP}, #{lpa_manufacturer},
+                #{lpa_shelfLife}, #{lpa_adminID})
+    </insert>
+    <delete id="deleteLPA" parameterType="int">
+        delete
+        from lpa
+        where lpa_ID = #{lpa_ID}
+    </delete>
+    <update id="updateLPA" parameterType="LPA">
+        update lpa
+        set lpa_name=#{lpa_name},
+            lpa_price=#{lpa_price},
+            lpa_number=#{lpa_number},
+            lpa_dateForP=#{lpa_dateForP},
+            lpa_manufacturer=#{lpa_manufacturer},
+            lpa_shelfLife=#{lpa_shelfLife},
+            lpa_adminID=#{lpa_adminID}
+        where lpa_ID = #{lpa_ID}
+    </update>
+</mapper>

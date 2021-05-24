@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whpu.dao.AForBDao">
+    <select id="getAllAForB" resultType="AForB">
+        select *
+        from afb
+    </select>
+    <select id="getAForBById" resultType="AForB">
+        select *
+        from afb
+        where afb_ID = #{afb_ID}
+    </select>
+    <insert id="insertAForB" parameterType="AForB">
+        insert into afb(afb_name, afb_number, afb_bDate, afb_rDate, afb_usefor, afb_bName, afb_bTele, afb_facultyID,
+                        afb_isPermited)
+        values (#{afb_name}, #{afb_number}, #{afb_bDate}, #{afb_rDate}, #{afb_usefor}, #{afb_bName}, #{afb_bTele},
+                #{afb_facultyID}, #{afb_isPermited})
+    </insert>
+    <delete id="deleteAForB" parameterType="int">
+        delete
+        from afb
+        where afb_ID = #{afb_ID}
+    </delete>
+    <update id="updateAForB" parameterType="AForB">
+        update afb
+        set afb_name=#{afb_name},
+            afb_number=#{afb_number},
+            afb_bDate=#{afb_bDate},
+            afb_rDate=#{afb_rDate},
+            afb_usefor=#{afb_usefor},
+            afb_bName=#{afb_bName},
+            afb_bTele=#{afb_bTele},
+            afb_facultyID=#{afb_facultyID},
+            afb_isPermited=#{afb_isPermited}
+        where afb_ID = #{afb_ID}
+    </update>
+</mapper>

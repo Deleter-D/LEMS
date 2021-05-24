@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whpu.dao.DeviceDao">
+    <select id="getAllDevice" resultType="Device">
+        select *
+        from device
+    </select>
+    <select id="getDeviceById" resultType="Device">
+        select *
+        from device
+        where d_ID = #{d_ID}
+    </select>
+    <insert id="insertDevice" parameterType="Device">
+        insert into device(d_name, d_price, d_number, d_dateForP, d_manufacturer, d_shelfLife, d_adminID, d_facultyID,
+                           d_isBorrowed)
+        values (#{d_name}, #{d_price}, #{d_number}, #{d_dateForP},
+                #{d_manufacturer}, #{d_shelfLife}, #{d_adminID}, #{d_facultyID}, #{d_isBorrowed})
+    </insert>
+    <delete id="deleteDevice" parameterType="int">
+        delete
+        from device
+        where d_ID = #{d_ID}
+    </delete>
+    <update id="updateDevice" parameterType="Device">
+        update device
+        set d_name=#{d_name},
+            d_price=#{d_price},
+            d_number=#{d_number},
+            d_dateForP=#{d_dateForP},
+            d_manufacturer=#{d_manufacturer},
+            d_shelfLife=#{d_shelfLife},
+            d_adminID=#{d_adminID},
+            d_facultyID=#{d_facultyID},
+            d_isBorrowed=#{d_isBorrowed}
+        where d_ID = #{d_ID}
+    </update>
+</mapper>

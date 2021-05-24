@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.whpu.dao.AForLPADao">
+    <select id="getAllAForLPA" resultType="AForLPA">
+        select *
+        from aflpa
+    </select>
+    <select id="getAForLPAById" parameterType="int" resultType="AForLPA">
+        select *
+        from aflpa
+        where aflpa_ID = #{aflpa_ID}
+    </select>
+    <insert id="insertAForLPA" parameterType="AForLPA">
+        insert into aflpa(aflpa_name, aflpa_number, aflpa_bDate, aflpa_useFor, aflpa_bName, aflpa_bTele,
+                          aflpa_facultyID, aflpa_isPermited)
+        values (#{aflpa_name}, #{aflpa_number}, #{aflpa_bDate}, #{aflpa_useFor}, #{aflpa_bName}, #{aflpa_bTele},
+                #{aflpa_facultyID}, #{aflpa_isPermited})
+    </insert>
+    <delete id="deleteAForLPA" parameterType="int">
+        delete
+        from aflpa
+        where aflpa_ID = #{aflpa_ID}
+    </delete>
+    <update id="updateAForLPA" parameterType="AForLPA">
+        update aflpa
+        set aflpa_name=#{aflpa_name},
+            aflpa_number=#{aflpa_number},
+            aflpa_bDate=#{aflpa_bDate},
+            aflpa_useFor=#{aflpa_useFor},
+            aflpa_bName=#{aflpa_bName},
+            aflpa_bTele=#{aflpa_bTele},
+            aflpa_facultyID=#{aflpa_facultyID},
+            aflpa_isPermited=#{aflpa_isPermited}
+        where aflpa_ID = #{aflpa_ID}
+    </update>
+</mapper>
