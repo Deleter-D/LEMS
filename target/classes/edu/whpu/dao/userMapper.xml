@@ -37,5 +37,6 @@
         from user
         where u_account = #{u_account}
           AND u_password = #{u_password}
+          AND u_identity = #{u_identity}
     </select>
 </mapper>

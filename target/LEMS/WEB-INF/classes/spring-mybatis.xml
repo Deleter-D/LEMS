@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="edu.whpu"></context:component-scan>
+    <!--    <context:component-scan base-package="edu.whpu"></context:component-scan>-->
 
     <!--加载配置文件-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -32,12 +32,15 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="edu.whpu.pojo"/>
+        <property name="mapperLocations" value="classpath:edu/whpu/dao/*.xml"/>
     </bean>
 
     <!--Mybatis自动扫描加载Sql映射文件-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="edu.whpu.dao"/>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <!--注意此处，被注释的配置方式会导致无法加载jdbc.driver-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!--事务管理-->

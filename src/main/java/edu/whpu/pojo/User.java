@@ -7,12 +7,12 @@ public class User {
     private String u_name;
     private String u_tele;
     private int u_facultyID;
-    private int u_identity;
+    private String u_identity;
 
     public User() {
     }
 
-    public User(String u_account, String u_password, String u_name, String u_tele, int u_facultyID, int u_identity) {
+    public User(String u_account, String u_password, String u_name, String u_tele, int u_facultyID, String u_identity) {
         this.u_account = u_account;
         this.u_password = u_password;
         this.u_name = u_name;
@@ -69,11 +69,11 @@ public class User {
         this.u_facultyID = u_facultyID;
     }
 
-    public int getU_identity() {
+    public String getU_identity() {
         return u_identity;
     }
 
-    public void setU_identity(int u_identity) {
+    public void setU_identity(String u_identity) {
         this.u_identity = u_identity;
     }
 

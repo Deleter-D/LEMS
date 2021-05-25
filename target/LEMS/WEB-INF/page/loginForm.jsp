@@ -33,6 +33,11 @@
         <hr class="hr15">
         <input name="password" lay-verify="required" placeholder="密码" type="password" class="layui-input">
         <hr class="hr15">
+        <select class="layui-input" name="identity">
+            <option value="0">普通用户</option>
+            <option value="1">管理员</option>
+        </select>
+        <hr class="hr15">
         <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
         <hr class="hr20">
     </form>

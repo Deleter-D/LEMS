@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 public interface LoginServie {
     // 认证账号信息
-    public User login(String loginname, String password);
+    public User login(String loginname, String password, String  identity);
 }

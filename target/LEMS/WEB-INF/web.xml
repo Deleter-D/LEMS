@@ -10,7 +10,9 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-mvc.xml</param-value>
+            <!--此处注意，如果配成注释掉的代码，将导致dao和service的扫描配置找不到-->
+            <!--<param-value>classpath:spring-mvc.xml</param-value>-->
+            <param-value>classpath:applicationContext.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

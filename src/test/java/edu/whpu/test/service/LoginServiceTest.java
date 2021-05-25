@@ -1,7 +1,6 @@
 package edu.whpu.test.service;
 
 import edu.whpu.pojo.User;
-import edu.whpu.service.Impl.LoginServiceImpl;
 import edu.whpu.service.LoginServie;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +16,7 @@ public class LoginServiceTest {
 
     @Test
     public void loginTest() {
-        User user = loginServie.login("1805110274", "adminwyp");
+        User user = loginServie.login("1805110274", "adminwyp", "1");
         System.out.println(user);
     }
 }

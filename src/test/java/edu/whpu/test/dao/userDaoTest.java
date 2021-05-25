@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value = {"classpath:applicationContext.xml"})
 public class userDaoTest {
@@ -34,7 +35,7 @@ public class userDaoTest {
 
     @Test
     public void insertUserTest() {
-        User user = new User("18051102x1", "admin01", "张三", "18735803948", 1, 0);
+        User user = new User("18051102x1", "admin01", "张三", "18735803948", 1, "0");
         int count = userDao.insertUser(user);
         System.out.println(count);
     }
@@ -55,7 +56,7 @@ public class userDaoTest {
 
     @Test
     public void getUserByAccountTest() {
-        User user = userDao.UserLogin("1805110274","adminwyp");
+        User user = userDao.UserLogin("1805110274", "adminwyp", "1");
         System.out.println(user);
     }
 }
