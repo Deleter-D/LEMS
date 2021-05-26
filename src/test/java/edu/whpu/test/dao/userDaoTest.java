@@ -49,7 +49,7 @@ public class userDaoTest {
 
     @Test
     public void updateUserTest() {
-        User user = userDao.getUserById(4);
+        User user = userDao.getUserById(12);
         user.setU_password("admin123");
         int count = userDao.updateUser(user);
         System.out.println(count);

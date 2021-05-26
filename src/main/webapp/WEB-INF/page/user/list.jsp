@@ -67,14 +67,15 @@
             <th>电话</th>
             <th>学院</th>
             <th>权限</th>
+            <th>处理</th>
         </thead>
         <tbody>
         <c:forEach items="${requestScope.userlist}" var="user" varStatus="stat">
             <tr>
-                <%--<td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i
-                            class="layui-icon">&#xe605;</i></div>
-                </td>--%>
+                    <%--<td>
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i
+                                class="layui-icon">&#xe605;</i></div>
+                    </td>--%>
                 <td>${user.u_ID}</td>
                 <td>${user.u_account}</td>
                 <td>${user.u_name}</td>
@@ -95,10 +96,10 @@
                        <i class="layui-icon">&#xe601;</i>
                      </a> -->
                         <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
-                    <a title="编辑" href="${ctx}/notice/add?id=${dept.id }">
+                    <a title="编辑" href="${ctx}/user/add?id=${user.u_ID}">
                         <i class="layui-icon">&#xe642;</i>
                     </a>
-                    <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
+                    <a title="删除" onclick="member_del(this,'${user.u_ID}')" href="javascript:;">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
@@ -137,7 +138,7 @@
     });
 
     /*用户-停用*/
-    function member_stop(obj, id) {
+    /*function member_stop(obj, id) {
         layer.confirm('确认要停用吗？', function (index) {
 
             if ($(obj).attr('title') == '启用') {
@@ -158,21 +159,21 @@
             }
 
         });
-    }
+    }*/
 
     /*用户-删除*/
     function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
             //发异步删除数据
             //等以后再使用异步，这里先使用
-            $.get("${ctx}/user/delete?id=" + id);
+            $.get("${ctx}/user/deleteuser?id=" + id);
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
         });
     }
 
 
-    function delAll(argument) {
+    /*function delAll(argument) {
 
         var data = tableCheck.getData();
 
@@ -181,7 +182,7 @@
             layer.msg('删除成功', {icon: 1});
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
-    }
+    }*/
 </script>
 <script>var _hmt = _hmt || [];
 (function () {
