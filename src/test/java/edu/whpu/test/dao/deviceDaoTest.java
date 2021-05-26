@@ -53,4 +53,12 @@ public class deviceDaoTest {
         int count = deviceDao.updateDevice(device);
         System.out.println(count);
     }
+
+    @Test
+    public void getDeviceListTest(){
+        List<Device> deviceList = deviceDao.getDeviceList();
+        for (Device device:deviceList){
+            System.out.println(device);
+        }
+    }
 }

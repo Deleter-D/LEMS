@@ -22,17 +22,17 @@ public class TempController {
 //        return mv;
 //    }
 
-    @RequestMapping("/dept/list")
-    public ModelAndView deptlist(ModelAndView mv) {
-        mv.setViewName("/dept/list");
-        return mv;
-    }
-
-    @RequestMapping("/dept/add")
-    public ModelAndView deptadd(ModelAndView mv) {
-        mv.setViewName("/dept/add");
-        return mv;
-    }
+//    @RequestMapping("/dept/list")
+//    public ModelAndView deptlist(ModelAndView mv) {
+//        mv.setViewName("/dept/list");
+//        return mv;
+//    }
+//
+//    @RequestMapping("/dept/add")
+//    public ModelAndView deptadd(ModelAndView mv) {
+//        mv.setViewName("/dept/add");
+//        return mv;
+//    }
 
     @RequestMapping("/job/list")
     public ModelAndView joblist(ModelAndView mv) {

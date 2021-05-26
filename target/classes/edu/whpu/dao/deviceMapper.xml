@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.whpu.dao.DeviceDao">
+    <resultMap id="deviceListResultMap" type="Device">
+        <id property="d_ID" column="d_ID"/>
+        <result property="d_name" column="d_name"/>
+        <result property="d_price" column="d_price"/>
+        <result property="d_number" column="d_number"/>
+        <result property="d_dateForP" column="d_dateForP"/>
+        <result property="d_manufacturer" column="d_manufacturer"/>
+        <result property="d_shelfLife" column="d_shelfLife"/>
+        <result property="d_isBorrowed" column="d_isBorrowed"/>
+        <association property="admin" javaType="User">
+            <id property="u_ID" column="u_ID"/>
+            <result property="u_name" column="u_name"/>
+        </association>
+        <association property="faculty" javaType="Faculty">
+            <id property="f_ID" column="f_ID"/>
+            <result property="f_name" column="f_name"/>
+        </association>
+    </resultMap>
     <select id="getAllDevice" resultType="Device">
         select *
         from device
@@ -35,4 +53,12 @@
             d_isBorrowed=#{d_isBorrowed}
         where d_ID = #{d_ID}
     </update>
+    <select id="getDeviceList" resultMap="deviceListResultMap">
+        select device.*, faculty.f_name, user.u_name
+        from device,
+             faculty,
+             user
+        where device.d_facultyID = faculty.f_ID
+          and device.d_adminID = user.u_ID
+    </select>
 </mapper>

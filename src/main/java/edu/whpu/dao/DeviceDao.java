@@ -15,4 +15,6 @@ public interface DeviceDao {
     public int deleteDevice(int d_ID);
 
     public int updateDevice(Device device);
+
+    public List<Device> getDeviceList();
 }

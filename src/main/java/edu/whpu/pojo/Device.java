@@ -14,6 +14,8 @@ public class Device {
     private int d_adminID;
     private int d_facultyID;
     private int d_isBorrowed;
+    private User admin;
+    private Faculty faculty;
 
     public Device() {
     }
@@ -110,6 +112,22 @@ public class Device {
         this.d_isBorrowed = d_isBorrowed;
     }
 
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
+    }
+
     @Override
     public String toString() {
         return "Device{" +
@@ -123,6 +141,8 @@ public class Device {
                 ", d_adminID=" + d_adminID +
                 ", d_facultyID=" + d_facultyID +
                 ", d_isBorrowed=" + d_isBorrowed +
+                ", admin=" + admin +
+                ", faculty=" + faculty +
                 '}';
     }
 }

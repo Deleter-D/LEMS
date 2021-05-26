@@ -26,20 +26,13 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("/list")
-    public ModelAndView userList(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    public ModelAndView userList(ModelAndView mv, HttpServletRequest request, HttpSession session) {
         User user = (User) session.getAttribute("user");
         List<User> userList = userService.getUserList();
         request.setAttribute("userlist", userList);
         if (user.getU_identity().equals("1")) {
             mv.setViewName("user/list");
         } else {
-            /*PrintWriter out = null;
-            try {
-                out = response.getWriter();
-                out.print("<script>alert('对不起，您没有权限！')</script>");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
             mv.setViewName("welcome");
         }
         return mv;
