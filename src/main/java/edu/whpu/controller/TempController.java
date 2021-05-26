@@ -10,17 +10,17 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class TempController {
 
-    @RequestMapping("user/list")
+    /*@RequestMapping("user/list")
     public ModelAndView userlist(ModelAndView mv) {
         mv.setViewName("user/list");
         return mv;
-    }
+    }*/
 
-    @RequestMapping("/user/add")
-    public ModelAndView useradd(ModelAndView mv) {
-        mv.setViewName("/user/add");
-        return mv;
-    }
+//    @RequestMapping("/user/add")
+//    public ModelAndView useradd(ModelAndView mv) {
+//        mv.setViewName("/user/add");
+//        return mv;
+//    }
 
     @RequestMapping("/dept/list")
     public ModelAndView deptlist(ModelAndView mv) {

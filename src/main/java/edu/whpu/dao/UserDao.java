@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 @Component
 public interface UserDao {
@@ -19,4 +20,6 @@ public interface UserDao {
     public int updateUser(User user);
 
     public User UserLogin(@Param("u_account") String loginname, @Param("u_password") String password, @Param("u_identity") String identity);
+
+    public List<User> getUserList();
 }

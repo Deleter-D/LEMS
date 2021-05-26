@@ -8,6 +8,7 @@ public class User {
     private String u_tele;
     private int u_facultyID;
     private String u_identity;
+    private Faculty faculty;
 
     public User() {
     }
@@ -77,6 +78,14 @@ public class User {
         this.u_identity = u_identity;
     }
 
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -86,7 +95,8 @@ public class User {
                 ", u_name='" + u_name + '\'' +
                 ", u_tele='" + u_tele + '\'' +
                 ", u_facultyID=" + u_facultyID +
-                ", u_identity=" + u_identity +
+                ", u_identity='" + u_identity + '\'' +
+                ", faculty=" + faculty +
                 '}';
     }
 }

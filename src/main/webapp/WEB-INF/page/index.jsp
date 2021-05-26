@@ -58,7 +58,6 @@
                         <a _href="${ctx }/user/list">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>用户列表</cite>
-
                         </a>
                     </li>
                     <li>
@@ -207,4 +206,11 @@
 <!-- 底部结束 -->
 
 </body>
+<script>
+    <%--function identifyUser(){--%>
+    <%--    if(${sessionScope.user.u_identity}=="1"){--%>
+    <%--        document.getElementById("userlistbutton").onclick=function (){alert('对不起，你没有权限！')}--%>
+    <%--    }--%>
+    <%--}--%>
+</script>
 </html>

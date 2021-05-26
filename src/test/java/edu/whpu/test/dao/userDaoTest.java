@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value = {"classpath:applicationContext.xml"})
@@ -58,5 +59,13 @@ public class userDaoTest {
     public void getUserByAccountTest() {
         User user = userDao.UserLogin("1805110274", "adminwyp", "1");
         System.out.println(user);
+    }
+
+    @Test
+    public void getUserListTest() {
+        List<User> userList = userDao.getUserList();
+        for (User user:userList){
+            System.out.println(user);
+        }
     }
 }
