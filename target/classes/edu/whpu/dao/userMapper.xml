@@ -57,4 +57,10 @@
              faculty
         where user.u_facultyID = faculty.f_ID
     </select>
+
+    <select id="getAllAdmin" resultType="User">
+        select *
+        from user
+        where u_identity = '1'
+    </select>
 </mapper>

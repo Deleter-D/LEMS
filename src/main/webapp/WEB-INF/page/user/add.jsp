@@ -25,7 +25,7 @@
 
 <body>
 <div class="x-body">
-    <form class="layui-form" method="POST" id="userAdd" action="${ctx}/user/usersubmit">
+    <form class="layui-form" method="post" id="userAdd" action="${ctx}/user/usersubmit">
         <input type="hidden" name="u_ID" id="u_ID" value="${requestScope.editUser.u_ID}">
         <div class="layui-form-item">
             <label for="userAdd" class="layui-form-label">
@@ -35,7 +35,6 @@
                 <input type="text" id="u_account" name="u_account" required="" lay-verify="required"
                        autocomplete="off" class="layui-input" value="${requestScope.editUser.u_account}">
             </div>
-
         </div>
         <div class="layui-form-item">
             <label for="userAdd" class="layui-form-label">
@@ -112,15 +111,9 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label for="userAdd" class="layui-form-label">
-            </label>
+            <label for="userAdd" class="layui-form-label"></label>
             <input type="submit" value=" 提交" class="layui-btn" lay-filter="add" lay-submit/>
         </div>
-        <%--<div class="layui-form-item">
-            <div class="layui-input-block">
-                <button id="submit" class="layui-btn" lay-submit lay-filter="add">提交</button>
-            </div>
-        </div>--%>
     </form>
 </div>
 <script>
@@ -146,9 +139,8 @@
 
         //监听提交
         form.on('submit(add)', function (data) {
-
-            // layer.msg(JSON.stringify(data.field));
             console.log(JSON.stringify(data.field));
+            // console.log(JSON.parse(data.field));
             //发异步，把数据提交给php
             layer.alert("增加成功", {icon: 6}, function () {
                 document.getElementById('userAdd').submit();

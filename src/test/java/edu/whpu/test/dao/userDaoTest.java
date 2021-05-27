@@ -68,4 +68,12 @@ public class userDaoTest {
             System.out.println(user);
         }
     }
+
+    @Test
+    public void getAllAdminTest(){
+        List<User> adminList = userDao.getAllAdmin();
+        for (User user:adminList){
+            System.out.println(user);
+        }
+    }
 }

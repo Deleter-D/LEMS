@@ -22,4 +22,6 @@ public interface UserDao {
     public User UserLogin(@Param("u_account") String loginname, @Param("u_password") String password, @Param("u_identity") String identity);
 
     public List<User> getUserList();
+
+    public List<User> getAllAdmin();
 }

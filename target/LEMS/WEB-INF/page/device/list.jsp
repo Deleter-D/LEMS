@@ -27,9 +27,8 @@
 <div class="x-nav">
       <span class="layui-breadcrumb">
         <a href="">首页</a>
-        <a href="">演示</a>
         <a>
-          <cite>导航元素</cite></a>
+          <cite>设备列表</cite></a>
       </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
        href="javascript:location.replace(location.href);" title="刷新">
@@ -69,6 +68,7 @@
             <th>管理员</th>
             <th>学院</th>
             <th>借还状态</th>
+            <th>处理</th>
         </thead>
         <tbody>
         <c:forEach items="${requestScope.devicelist}" var="device" varStatus="stat">
@@ -112,7 +112,7 @@
 
         </tbody>
     </table>
-    <div class="page">
+    <%--<div class="page">
         <div>
             <a class="prev" href="">&lt;&lt;</a>
             <a class="num" href="">1</a>
@@ -121,7 +121,7 @@
             <a class="num" href="">489</a>
             <a class="next" href="">&gt;&gt;</a>
         </div>
-    </div>
+    </div>--%>
 
 </div>
 <script>

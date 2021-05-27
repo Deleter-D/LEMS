@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add")
-    public ModelAndView userAdd(ModelAndView mv, String id, HttpSession session,HttpServletRequest request) {
+    public ModelAndView userAdd(ModelAndView mv, String id, HttpSession session, HttpServletRequest request) {
         if (id != null) {
             int u_ID = Integer.parseInt(id);
             User user = userService.getUserById(u_ID);
@@ -56,23 +56,23 @@ public class UserController {
         return mv;
     }
 
-    @RequestMapping("/usersubmit")
+    @RequestMapping(value = "/usersubmit")
     @ResponseBody
     public ModelAndView useraddSubmit(ModelAndView mv, User user) {
-        int flag=0;
+        int flag = 0;
         List<User> userList = userService.getUserList();
-        for (User userInList:userList){
-            if (userInList.getU_account().equals(user.getU_account())){
+        for (User userInList : userList) {
+            if (userInList.getU_account().equals(user.getU_account())) {
                 // 1为更新
-                flag=1;
+                flag = 1;
             }
         }
-        if (flag==0){
+        if (flag == 0) {
             int i = userService.addUser(user);
             System.out.println("添加" + i + "名用户");
             mv.setViewName("/user/add");
             return mv;
-        }else {
+        } else {
             int i = userService.updateUser(user);
             System.out.println("更新" + i + "名用户");
             mv.setViewName("/user/list");

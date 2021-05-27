@@ -14,12 +14,12 @@
     <context:component-scan base-package="edu.whpu.controller"/>
 
     <!--启动注解-->
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <ref bean="stringHttpMessageConverter"/>
-            <ref bean="mappingJackson2HttpMessageConverter"/>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+    <mvc:annotation-driven/>
+<!--        <mvc:message-converters>-->
+<!--            <ref bean="stringHttpMessageConverter"/>-->
+<!--            <ref bean="mappingJackson2HttpMessageConverter"/>-->
+<!--        </mvc:message-converters>-->
+<!--    </mvc:annotation-driven>-->
 
     <!--静态资源处理-->
     <mvc:default-servlet-handler/>
@@ -32,16 +32,16 @@
 
 
     <!--Jackson-->
-    <bean id="stringHttpMessageConverter"
-          class="org.springframework.http.converter.StringHttpMessageConverter"/>
+<!--    <bean id="stringHttpMessageConverter"-->
+<!--          class="org.springframework.http.converter.StringHttpMessageConverter"/>-->
 
     <!--解决IE浏览器json文件下载和json数据中午乱码的问题-->
-    <bean id="mappingJackson2HttpMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
+<!--    <bean id="mappingJackson2HttpMessageConverter"-->
+<!--          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+<!--        <property name="supportedMediaTypes">-->
+<!--            <list>-->
+<!--                <value>application/json;charset=UTF-8</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 </beans>
