@@ -1,6 +1,8 @@
 package edu.whpu.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Device {

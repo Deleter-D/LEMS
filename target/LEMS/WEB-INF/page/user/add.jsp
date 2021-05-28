@@ -26,7 +26,9 @@
 <body>
 <div class="x-body">
     <form class="layui-form" method="post" id="userAdd" action="${ctx}/user/usersubmit">
-        <input type="hidden" name="u_ID" id="u_ID" value="${requestScope.editUser.u_ID}">
+        <c:if test="${not empty requestScope.editUser.u_ID}">
+            <input type="hidden" name="u_ID" id="u_ID" value="${requestScope.editUser.u_ID}">
+        </c:if>
         <div class="layui-form-item">
             <label for="userAdd" class="layui-form-label">
                 <span class="x-red">*</span>学工号
@@ -50,7 +52,7 @@
                 <span class="x-red">*</span>重复密码
             </label>
             <div class="layui-input-inline">
-                <input type="password" id="repassword" name="repassword" required="" lay-verify="required|repass"
+                <input type="password" id="repassword" required="" lay-verify="required|repass"
                        autocomplete="off" class="layui-input" value="${requestScope.editUser.u_password}">
             </div>
         </div>
@@ -110,6 +112,7 @@
                 </select>
             </div>
         </div>
+        <input type="hidden" id="u_faculty" name="u_faculty" value="">
         <div class="layui-form-item">
             <label for="userAdd" class="layui-form-label"></label>
             <input type="submit" value=" 提交" class="layui-btn" lay-filter="add" lay-submit/>

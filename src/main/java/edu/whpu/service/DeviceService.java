@@ -11,5 +11,11 @@ public interface DeviceService {
 
     public List<User> getAllAdmin();
 
+    public Device getDeviceById(int d_ID);
+
     public int addDevice(Device device);
+
+    public int deleteDevice(int d_ID);
+
+    public int updateDevice(Device device);
 }

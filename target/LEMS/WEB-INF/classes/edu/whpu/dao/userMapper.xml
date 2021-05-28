@@ -43,7 +43,7 @@
     </update>
 
     <!--服务层所需操作-->
-    <select id="UserLogin" parameterType="string" resultType="User">
+    <select id="userLogin" parameterType="string" resultType="User">
         select *
         from user
         where u_account = #{u_account}

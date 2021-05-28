@@ -57,23 +57,29 @@ public class userDaoTest {
 
     @Test
     public void getUserByAccountTest() {
-        User user = userDao.UserLogin("1805110274", "adminwyp", "1");
+        User user = userDao.userLogin("1805110274", "adminwyp", "1");
         System.out.println(user);
     }
 
     @Test
     public void getUserListTest() {
         List<User> userList = userDao.getUserList();
-        for (User user:userList){
+        for (User user : userList) {
             System.out.println(user);
         }
     }
 
     @Test
-    public void getAllAdminTest(){
+    public void getAllAdminTest() {
         List<User> adminList = userDao.getAllAdmin();
-        for (User user:adminList){
+        for (User user : adminList) {
             System.out.println(user);
         }
+    }
+
+    @Test
+    public void userLoginTest() {
+        User user = userDao.userLogin("1805110274", "adminwyp", "1");
+        System.out.println(user);
     }
 }

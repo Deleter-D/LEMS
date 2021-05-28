@@ -31,7 +31,22 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
+    public Device getDeviceById(int d_ID) {
+        return deviceDao.getDeviceById(d_ID);
+    }
+
+    @Override
     public int addDevice(Device device) {
         return deviceDao.insertDevice(device);
+    }
+
+    @Override
+    public int deleteDevice(int d_ID) {
+        return deviceDao.deleteDevice(d_ID);
+    }
+
+    @Override
+    public int updateDevice(Device device) {
+        return deviceDao.updateDevice(device);
     }
 }

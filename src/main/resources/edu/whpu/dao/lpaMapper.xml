@@ -2,6 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.whpu.dao.LPADao">
+    <resultMap id="LPAListResultMap" type="LPA">
+        <id property="lpa_ID" column="lpa_ID"/>
+        <result property="lpa_name" column="lpa_name"/>
+        <result property="lpa_price" column="lpa_price"/>
+        <result property="lpa_number" column="lpa_number"/>
+        <result property="lpa_dateForP" column="lpa_dateForP"/>
+        <result property="lpa_manufacturer" column="lpa_manufacturer"/>
+        <result property="lpa_shelfLife" column="lpa_shelfLife"/>
+        <association property="admin" javaType="User">
+            <id property="u_ID" column="u_ID"/>
+            <result property="u_name" column="u_name"/>
+        </association>
+    </resultMap>
     <select id="getAllLPA" resultType="LPA">
         select *
         from lpa
@@ -32,4 +45,10 @@
             lpa_adminID=#{lpa_adminID}
         where lpa_ID = #{lpa_ID}
     </update>
+    <select id="getLPAList" resultMap="LPAListResultMap">
+        select lpa.*, user.u_name
+        from lpa,
+             user
+        where lpa.lpa_adminID = user.u_ID
+    </select>
 </mapper>

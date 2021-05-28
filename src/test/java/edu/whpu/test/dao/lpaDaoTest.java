@@ -53,4 +53,12 @@ public class lpaDaoTest {
         int count = lpaDao.updateLPA(lpa);
         System.out.println(count);
     }
+
+    @Test
+    public void getLPAListTest() {
+        List<LPA> lpaList = lpaDao.getLPAList();
+        for (LPA lpa : lpaList) {
+            System.out.println(lpa);
+        }
+    }
 }

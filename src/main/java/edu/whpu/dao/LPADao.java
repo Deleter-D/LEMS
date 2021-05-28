@@ -14,4 +14,6 @@ public interface LPADao {
     public int deleteLPA(int lpa_ID);
 
     public int updateLPA(LPA lpa);
+
+    public List<LPA> getLPAList();
 }

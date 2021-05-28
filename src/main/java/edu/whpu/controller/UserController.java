@@ -57,7 +57,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/usersubmit")
-    @ResponseBody
+//    @ResponseBody
     public ModelAndView useraddSubmit(ModelAndView mv, User user) {
         int flag = 0;
         List<User> userList = userService.getUserList();

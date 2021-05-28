@@ -73,10 +73,10 @@
         <tbody>
         <c:forEach items="${requestScope.devicelist}" var="device" varStatus="stat">
             <tr>
-                <%--<td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i
-                            class="layui-icon">&#xe605;</i></div>
-                </td>--%>
+                    <%--<td>
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i
+                                class="layui-icon">&#xe605;</i></div>
+                    </td>--%>
                 <td>${device.d_ID}</td>
                 <td>${device.d_name}</td>
                 <td>${device.d_price}</td>
@@ -97,11 +97,12 @@
                     <!--  <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                        <i class="layui-icon">&#xe601;</i>
                      </a> -->
-                    <a title="编辑" onclick="x_admin_show('编辑','${ctx}/dept/add?id=${dept.id }');" href="javascript:;">
+                    <a title="编辑" onclick="x_admin_show('编辑','${ctx}/device/add?id=${device.d_ID}');"
+                       href="javascript:;">
 
                         <i class="layui-icon">&#xe642;</i>
                     </a>
-                    <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
+                    <a title="删除" onclick="member_del(this,'${device.d_ID}')" href="javascript:;">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
@@ -168,7 +169,7 @@
         layer.confirm('确认要删除吗？', function (index) {
             //发异步删除数据
             //等以后再使用异步，这里先使用
-            $.get("${ctx}/dept/delete?id=" + id);
+            $.get("${ctx}/device/deletedevice?id=" + id);
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
         });

@@ -1,6 +1,5 @@
 package edu.whpu.utils;
 
-import com.mysql.cj.Session;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

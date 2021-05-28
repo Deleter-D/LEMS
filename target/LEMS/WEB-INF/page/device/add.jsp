@@ -26,14 +26,16 @@
 <body>
 <div class="x-body">
     <form class="layui-form" method="POST" id="deviceAdd" action="${ctx}/device/divicesubmit">
-        <input type="hidden" name="d_ID" id="d_ID" value="${dept.id }">
+        <c:if test="${not empty requestScope.editDevice.d_ID}">
+            <input type="hidden" name="d_ID" id="d_ID" value="${requestScope.editDevice.d_ID}">
+        </c:if>
         <div class="layui-form-item">
             <label for="deviceAdd" class="layui-form-label">
                 <span class="x-red">*</span>名称
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="d_name" name="d_name" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${dept.name }">
+                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_name}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -42,7 +44,7 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="d_price" name="d_price" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${dept.remark }">
+                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_price}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -51,7 +53,7 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="d_number" name="d_number" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${dept.remark }">
+                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_number}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -60,7 +62,7 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="d_dateForP" name="d_dateForP" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${dept.remark }">
+                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_dateForP}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -69,7 +71,7 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="d_manufacturer" name="d_manufacturer" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${dept.remark }">
+                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_manufacturer}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -78,7 +80,7 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="d_shelfLife" name="d_shelfLife" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${dept.remark }">
+                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_shelfLife}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -89,7 +91,9 @@
                 <select id="d_adminID" name="d_adminID">
                     <option value=""></option>
                     <c:forEach items="${requestScope.adminList}" var="admin" varStatus="stat">
-                        <option value="${admin.u_ID}">${admin.u_name}</option>
+                        <option
+                                <c:if test="${requestScope.editDevice.d_adminID==admin.u_ID}">selected</c:if>
+                                value="${admin.u_ID}">${admin.u_name}</option>
                     </c:forEach>
                 </select>
             </div>
@@ -105,17 +109,17 @@
             <div class="layui-input-inline">
                 <select id="d_facultyID" name="d_facultyID">
                     <option value=""></option>
-                    <option <c:if test="${requestScope.editUser.u_facultyID==1}"> selected </c:if> value="1">数学与计算机学院
+                    <option <c:if test="${requestScope.editDevice.d_facultyID==1}"> selected </c:if> value="1">数学与计算机学院
                     </option>
-                    <option <c:if test="${requestScope.editUser.u_facultyID==2}"> selected </c:if> value="2">电气与工程学院
+                    <option <c:if test="${requestScope.editDevice.d_facultyID==2}"> selected </c:if> value="2">电气与工程学院
                     </option>
-                    <option <c:if test="${requestScope.editUser.u_facultyID==3}"> selected </c:if> value="3">机械工程学院
+                    <option <c:if test="${requestScope.editDevice.d_facultyID==3}"> selected </c:if> value="3">机械工程学院
                     </option>
-                    <option <c:if test="${requestScope.editUser.u_facultyID==4}"> selected </c:if> value="4">经济与管理学院
+                    <option <c:if test="${requestScope.editDevice.d_facultyID==4}"> selected </c:if> value="4">经济与管理学院
                     </option>
-                    <option <c:if test="${requestScope.editUser.u_facultyID==5}"> selected </c:if> value="5">外国语学院
+                    <option <c:if test="${requestScope.editDevice.d_facultyID==5}"> selected </c:if> value="5">外国语学院
                     </option>
-                    <option <c:if test="${requestScope.editUser.u_facultyID==6}"> selected </c:if> value="6">艺术与传媒学院
+                    <option <c:if test="${requestScope.editDevice.d_facultyID==6}"> selected </c:if> value="6">艺术与传媒学院
                     </option>
                 </select>
             </div>

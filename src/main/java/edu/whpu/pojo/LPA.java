@@ -11,6 +11,7 @@ public class LPA {
     private String lpa_manufacturer;
     private String lpa_shelfLife;
     private int lpa_adminID;
+    private User admin;
 
     public LPA() {
     }
@@ -89,6 +90,14 @@ public class LPA {
         this.lpa_adminID = lpa_adminID;
     }
 
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
+    }
+
     @Override
     public String toString() {
         return "LPA{" +
@@ -100,6 +109,7 @@ public class LPA {
                 ", lpa_manufacturer='" + lpa_manufacturer + '\'' +
                 ", lpa_shelfLife='" + lpa_shelfLife + '\'' +
                 ", lpa_adminID=" + lpa_adminID +
+                ", admin=" + admin +
                 '}';
     }
 }
