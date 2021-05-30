@@ -14,4 +14,6 @@ public interface AForPDao {
     public int deleteAForP(int afp_ID);
 
     public int updateAForP(AForP aForP);
+
+    public List<AForP> getAFPList();
 }

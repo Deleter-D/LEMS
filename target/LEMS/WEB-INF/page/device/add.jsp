@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -60,9 +61,13 @@
             <label for="deviceAdd" class="layui-form-label">
                 <span class="x-red">*</span>购置日期
             </label>
+            <c:if test="${not empty requestScope.editDevice.d_ID}">
+                <fmt:formatDate value="${requestScope.editDevice.d_dateForP}" pattern="yyyy-MM-dd"
+                                var="d_dateForPFormated"/>
+            </c:if>
             <div class="layui-input-inline">
                 <input type="text" id="d_dateForP" name="d_dateForP" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${requestScope.editDevice.d_dateForP}">
+                       autocomplete="off" class="layui-input" value="${d_dateForPFormated}">
             </div>
         </div>
         <div class="layui-form-item">

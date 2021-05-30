@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -79,7 +80,8 @@
                 <td>${lpa.lpa_name}</td>
                 <td>${lpa.lpa_price}</td>
                 <td>${lpa.lpa_number}</td>
-                <td>${lpa.lpa_dateForP}</td>
+                    <%--<td>${lpa.lpa_dateForP}</td>--%>
+                <td><fmt:formatDate value="${lpa.lpa_dateForP}" pattern="yyyy-MM-dd"/></td>
                 <td>${lpa.lpa_manufacturer}</td>
                 <td>${lpa.lpa_shelfLife}</td>
                 <td>${lpa.admin.u_name}</td>
@@ -90,7 +92,7 @@
                        <i class="layui-icon">&#xe601;</i>
                      </a> -->
                         <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
-                    <a title="编辑" href="${ctx}/job/add?id=${lpa.lpa_ID}">
+                    <a title="编辑" href="${ctx}/lpa/add?id=${lpa.lpa_ID}">
                         <i class="layui-icon">&#xe642;</i>
                     </a>
                     <a title="删除" onclick="member_del(this,'${lpa.lpa_ID}')" href="javascript:;">
@@ -160,7 +162,7 @@
         layer.confirm('确认要删除吗？', function (index) {
             //发异步删除数据
             //等以后再使用异步，这里先使用
-            $.get("${ctx}/job/delete?id=" + id);
+            $.get("${ctx}/lpa/delete?id=" + id);
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
         });

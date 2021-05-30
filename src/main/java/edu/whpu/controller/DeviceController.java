@@ -79,6 +79,7 @@ public class DeviceController {
         for (Device deviceInList : deviceList) {
             if (deviceInList.getD_ID() == device.getD_ID()) {
                 flag = 1;
+                break;
             }
         }
 

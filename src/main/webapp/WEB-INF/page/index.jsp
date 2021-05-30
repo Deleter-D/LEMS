@@ -30,7 +30,7 @@
 
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;">${sessionScope.user.u_name}</a>
+            <a href="javascript:;"><i class="layui-icon">&#xe66f;</i> ${sessionScope.user.u_name}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
                 <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
                 <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
@@ -116,20 +116,20 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe726;</i>
-                    <cite>员工管理</cite>
+                    <cite>购买申请</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="${ctx }/employee/list">
+                        <a _href="${ctx }/afp/list">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>员工列表</cite>
+                            <cite>申请列表</cite>
                         </a>
                     </li>
                     <li>
-                        <a _href="${ctx }/employee/add">
+                        <a _href="${ctx }/afp/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加员工</cite>
+                            <cite>添加申请</cite>
                         </a>
                     </li>
                 </ul>

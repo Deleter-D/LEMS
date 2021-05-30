@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.whpu.dao.AForPDao">
+    <resultMap id="afpListResultMap" type="AForP">
+        <id property="afp_ID" column="afp_ID"/>
+        <result property="afp_name" column="afp_name"/>
+        <result property="afp_price" column="afp_price"/>
+        <result property="afp_number" column="afp_number"/>
+        <result property="afp_dateForP" column="afp_dateForP"/>
+        <result property="afp_manufacturer" column="afp_manufacturer"/>
+        <result property="afp_shelfLife" column="afp_shelfLife"/>
+        <result property="afp_isPermited" column="afp_isPermited"/>
+        <association property="admin" javaType="User">
+            <id property="u_ID" column="u_ID"/>
+            <result property="u_name" column="u_name"/>
+        </association>
+        <association property="faculty" javaType="Faculty">
+            <id property="f_ID" column="f_ID"/>
+            <result property="f_name" column="f_name"/>
+        </association>
+    </resultMap>
     <select id="getAllAForP" resultType="AForP">
         select *
         from afp
@@ -35,4 +53,12 @@
             afp_isPermited=#{afp_isPermited}
         where afp_ID = #{afp_ID}
     </update>
+    <select id="getAFPList" resultMap="afpListResultMap">
+        select afp.*, user.u_name, faculty.f_name
+        from afp,
+             user,
+             faculty
+        where afp.afp_adminID = user.u_ID
+          and afp.afp_facultyID = faculty.f_ID
+    </select>
 </mapper>

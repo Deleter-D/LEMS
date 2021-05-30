@@ -13,6 +13,8 @@ public class AForP {
     private int afp_adminID;
     private int afp_facultyID;
     private int afp_isPermited;
+    private User admin;
+    private Faculty faculty;
 
     public AForP() {
     }
@@ -109,6 +111,22 @@ public class AForP {
         this.afp_isPermited = afp_isPermited;
     }
 
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
     @Override
     public String toString() {
         return "AForP{" +
@@ -122,6 +140,8 @@ public class AForP {
                 ", afp_adminID=" + afp_adminID +
                 ", afp_facultyID=" + afp_facultyID +
                 ", afp_isPermited=" + afp_isPermited +
+                ", admin=" + admin +
+                ", faculty=" + faculty +
                 '}';
     }
 }

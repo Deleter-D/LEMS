@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -81,7 +82,8 @@
                 <td>${device.d_name}</td>
                 <td>${device.d_price}</td>
                 <td>${device.d_number}</td>
-                <td>${device.d_dateForP}</td>
+                    <%--td>${device.d_dateForP}</td>--%>
+                <td><fmt:formatDate value="${device.d_dateForP}" pattern="yyyy-MM-dd"/></td>
                 <td>${device.d_manufacturer}</td>
                 <td>${device.d_shelfLife}</td>
                 <td>${device.admin.u_name}</td>
