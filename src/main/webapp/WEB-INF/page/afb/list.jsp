@@ -98,10 +98,10 @@
                     <c:if test="${afb.afb_isPermited=='-1'}">已驳回</c:if>
                 </td>
                 <td class="td-manage">
-                    <a title="编辑" href="${ctx}/afb/add?id=${dept.id }">
+                    <a title="批准" href="${ctx}/afb/permit?id=${afb.afb_ID}">
                         <i class="layui-icon">&#xe642;</i>
                     </a>
-                    <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
+                    <a title="驳回" href="${ctx}/afb/dispermit?id=${afb.afb_ID}">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
