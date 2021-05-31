@@ -1,6 +1,7 @@
 package edu.whpu.controller;
 
 import edu.whpu.pojo.AForP;
+import edu.whpu.pojo.Faculty;
 import edu.whpu.pojo.User;
 import edu.whpu.service.AFPService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,53 @@ public class AFPController {
         } else {
             mv.setViewName("welcome");
         }
+        return mv;
+    }
+
+    @RequestMapping("/add")
+    public ModelAndView afpAdd(ModelAndView mv, HttpSession session, HttpServletRequest request) {
+        List<User> adminList = afpService.getAllAdmin();
+        List<Faculty> facultyList = afpService.getAllFaculty();
+        request.setAttribute("adminList", adminList);
+        request.setAttribute("facultyList", facultyList);
+
+        User user = (User) session.getAttribute("user");
+        if (user.getU_identity().equals("1")) {
+            mv.setViewName("afp/add");
+            return mv;
+        } else {
+            mv.setViewName("welcome");
+            return mv;
+        }
+    }
+
+    @RequestMapping("/afpsubmit")
+    public ModelAndView afpSubmit(ModelAndView mv, AForP aForP) {
+        int i = afpService.addAFP(aForP);
+        System.out.println("增加" + i + "张购买申请");
+        mv.setViewName("/afp/add");
+        return mv;
+    }
+
+    @RequestMapping("/permit")
+    public ModelAndView afpPermit(ModelAndView mv, String id) {
+        int afp_ID = Integer.parseInt(id);
+        AForP afp = afpService.getAFPById(afp_ID);
+        afp.setAfp_isPermited(1);
+        int i = afpService.updateAFP(afp);
+        System.out.println("批准" + i + "个购买申请");
+        mv.setViewName("/afp/list");
+        return mv;
+    }
+
+    @RequestMapping("/dispermit")
+    public ModelAndView afpDispermit(ModelAndView mv, String id) {
+        int afp_ID = Integer.parseInt(id);
+        AForP afp = afpService.getAFPById(afp_ID);
+        afp.setAfp_isPermited(-1);
+        int i = afpService.updateAFP(afp);
+        System.out.println("驳回" + i + "个购买申请");
+        mv.setViewName("/afp/list");
         return mv;
     }
 }

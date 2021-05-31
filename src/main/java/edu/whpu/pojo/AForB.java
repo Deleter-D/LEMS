@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class AForB {
     private int afb_ID;
-    private String afb_name;
+    private int afb_deviceID;
     private int afb_number;
     private Date afb_bDate;
     private Date afb_rDate;
@@ -13,12 +13,14 @@ public class AForB {
     private String afb_bTele;
     private int afb_facultyID;
     private int afb_isPermited;
+    private Device device;
+    private Faculty faculty;
 
     public AForB() {
     }
 
-    public AForB(String afb_name, int afb_number, Date afb_bDate, Date afb_rDate, String afb_usefor, String afb_bName, String afb_bTele, int afb_facultyID, int afb_isPermited) {
-        this.afb_name = afb_name;
+    public AForB(int afb_deviceID, int afb_number, Date afb_bDate, Date afb_rDate, String afb_usefor, String afb_bName, String afb_bTele, int afb_facultyID, int afb_isPermited) {
+        this.afb_deviceID = afb_deviceID;
         this.afb_number = afb_number;
         this.afb_bDate = afb_bDate;
         this.afb_rDate = afb_rDate;
@@ -29,6 +31,7 @@ public class AForB {
         this.afb_isPermited = afb_isPermited;
     }
 
+
     public int getAfb_ID() {
         return afb_ID;
     }
@@ -37,12 +40,12 @@ public class AForB {
         this.afb_ID = afb_ID;
     }
 
-    public String getAfb_name() {
-        return afb_name;
+    public int getAfb_deviceID() {
+        return afb_deviceID;
     }
 
-    public void setAfb_name(String afb_name) {
-        this.afb_name = afb_name;
+    public void setAfb_deviceID(int afb_deviceID) {
+        this.afb_deviceID = afb_deviceID;
     }
 
     public int getAfb_number() {
@@ -109,11 +112,27 @@ public class AForB {
         this.afb_isPermited = afb_isPermited;
     }
 
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
     @Override
     public String toString() {
         return "AForB{" +
                 "afb_ID=" + afb_ID +
-                ", afb_name='" + afb_name + '\'' +
+                ", afb_deviceID=" + afb_deviceID +
                 ", afb_number=" + afb_number +
                 ", afb_bDate=" + afb_bDate +
                 ", afb_rDate=" + afb_rDate +
@@ -122,6 +141,8 @@ public class AForB {
                 ", afb_bTele='" + afb_bTele + '\'' +
                 ", afb_facultyID=" + afb_facultyID +
                 ", afb_isPermited=" + afb_isPermited +
+                ", device=" + device +
+                ", faculty=" + faculty +
                 '}';
     }
 }

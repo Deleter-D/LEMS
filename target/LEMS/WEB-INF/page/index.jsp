@@ -64,7 +64,6 @@
                         <a _href="${ctx }/user/add">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>添加用户</cite>
-
                         </a>
                     </li>
 
@@ -101,13 +100,13 @@
                     <li>
                         <a _href="${ctx }/lpa/list">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>耗材列表</cite>
+                            <cite>低值耗材列表</cite>
                         </a>
                     </li>
                     <li>
                         <a _href="${ctx }/lpa/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加耗材</cite>
+                            <cite>添加低值耗材</cite>
                         </a>
                     </li>
                 </ul>
@@ -121,15 +120,15 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="${ctx }/afp/list">
+                        <a _href="${ctx}/afp/list">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>申请列表</cite>
+                            <cite>购买申请列表</cite>
                         </a>
                     </li>
                     <li>
-                        <a _href="${ctx }/afp/add">
+                        <a _href="${ctx}/afp/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加申请</cite>
+                            <cite>添加购买申请</cite>
                         </a>
                     </li>
                 </ul>
@@ -137,20 +136,20 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6ce;</i>
-                    <cite>公告管理</cite>
+                    <cite>设备借用申请</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="${ctx }/notice/list">
+                        <a _href="${ctx}/afb/list">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>公告查询</cite>
+                            <cite>借用申请列表</cite>
                         </a>
                     </li>
                     <li>
-                        <a _href="${ctx }/notice/add">
+                        <a _href="${ctx}/afb/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>添加公告</cite>
+                            <cite>添加借用申请</cite>
                         </a>
                     </li>
 

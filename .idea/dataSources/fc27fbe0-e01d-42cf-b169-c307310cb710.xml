@@ -994,10 +994,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="296" parent="288" name="afb_name">
+    <column id="296" parent="288" name="afb_deviceID">
       <Position>2</Position>
-      <Comment>名称</Comment>
-      <DataType>varchar(20)|0s</DataType>
+      <Comment>设备ID</Comment>
+      <DataType>int|0s</DataType>
     </column>
     <column id="297" parent="288" name="afb_number">
       <Position>3</Position>
@@ -1007,12 +1007,12 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="298" parent="288" name="afb_bDate">
       <Position>4</Position>
       <Comment>借出日期</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
     <column id="299" parent="288" name="afb_rDate">
       <Position>5</Position>
       <Comment>归还日期</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
     <column id="300" parent="288" name="afb_usefor">
       <Position>6</Position>
@@ -1039,8 +1039,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Comment>是否批准(0-未批准 1-已批准)</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <index id="305" parent="288" name="afb_name">
-      <ColNames>afb_name</ColNames>
+    <index id="305" parent="288" name="afb_deviceID">
+      <ColNames>afb_deviceID</ColNames>
       <Type>btree</Type>
     </index>
     <index id="306" parent="288" name="afb_facultyID">
@@ -1052,10 +1052,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <ColNames>afb_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="308" parent="288" name="afb_name">
-      <ColNames>afb_name</ColNames>
+    <foreign-key id="308" parent="288" name="afb_deviceID">
+      <ColNames>afb_deviceID</ColNames>
       <RefTableName>device</RefTableName>
-      <RefColNames>d_name</RefColNames>
+      <RefColNames>d_ID</RefColNames>
     </foreign-key>
     <foreign-key id="309" parent="288" name="afb_facultyID">
       <ColNames>afb_facultyID</ColNames>
@@ -1081,7 +1081,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="313" parent="289" name="aflpa_bDate">
       <Position>4</Position>
       <Comment>借出日期</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
     <column id="314" parent="289" name="aflpa_useFor">
       <Position>5</Position>
@@ -1155,7 +1155,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="328" parent="290" name="afp_dateForP">
       <Position>5</Position>
       <Comment>购置日期</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
     <column id="329" parent="290" name="afp_manufacturer">
       <Position>6</Position>
@@ -1179,7 +1179,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="333" parent="290" name="afp_isPermited">
       <Position>10</Position>
-      <Comment>是否批准(0-未批准 1-已批准)</Comment>
+      <Comment>是否批准(0-未处理 1-已批准 -1-已驳回)</Comment>
       <DataType>int|0s</DataType>
     </column>
     <index id="334" parent="290" name="afp_adminID">
@@ -1229,7 +1229,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="343" parent="291" name="d_dateForP">
       <Position>5</Position>
       <Comment>购置日期</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
     <column id="344" parent="291" name="d_manufacturer">
       <Position>6</Position>
@@ -1334,7 +1334,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="364" parent="293" name="lpa_dateForP">
       <Position>5</Position>
       <Comment>购置日期</Comment>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
     </column>
     <column id="365" parent="293" name="lpa_manufacturer">
       <Position>6</Position>
@@ -1405,7 +1405,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="378" parent="294" name="u_identity">
       <Position>7</Position>
       <Comment>身份标识(0-普通用户  1-管理员)</Comment>
-      <DataType>int|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
     </column>
     <index id="379" parent="294" name="u_ID">
       <ColNames>u_ID</ColNames>

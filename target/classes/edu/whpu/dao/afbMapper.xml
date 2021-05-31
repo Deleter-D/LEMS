@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.whpu.dao.AForBDao">
+    <resultMap id="AFBListResultMap" type="AForB">
+        <id property="afb_ID" column="afb_ID"/>
+        <result property="afb_number" column="afb_number"/>
+        <result property="afb_bDate" column="afb_bDate"/>
+        <result property="afb_rDate" column="afb_rDate"/>
+        <result property="afb_usefor" column="afb_usefor"/>
+        <result property="afb_bName" column="afb_bName"/>
+        <result property="afb_bTele" column="afb_bTele"/>
+        <result property="afb_isPermited" column="afb_isPermited"/>
+        <association property="device" javaType="Device">
+            <id property="d_ID" column="d_ID"/>
+            <result property="d_name" column="d_name"/>
+        </association>
+        <association property="faculty" javaType="Faculty">
+            <id property="f_ID" column="f_ID"/>
+            <result property="f_name" column="f_name"/>
+        </association>
+    </resultMap>
     <select id="getAllAForB" resultType="AForB">
         select *
         from afb
@@ -12,9 +30,9 @@
         where afb_ID = #{afb_ID}
     </select>
     <insert id="insertAForB" parameterType="AForB">
-        insert into afb(afb_name, afb_number, afb_bDate, afb_rDate, afb_usefor, afb_bName, afb_bTele, afb_facultyID,
+        insert into afb(afb_deviceID, afb_number, afb_bDate, afb_rDate, afb_usefor, afb_bName, afb_bTele, afb_facultyID,
                         afb_isPermited)
-        values (#{afb_name}, #{afb_number}, #{afb_bDate}, #{afb_rDate}, #{afb_usefor}, #{afb_bName}, #{afb_bTele},
+        values (#{afb_deviceID}, #{afb_number}, #{afb_bDate}, #{afb_rDate}, #{afb_usefor}, #{afb_bName}, #{afb_bTele},
                 #{afb_facultyID}, #{afb_isPermited})
     </insert>
     <delete id="deleteAForB" parameterType="int">
@@ -24,7 +42,7 @@
     </delete>
     <update id="updateAForB" parameterType="AForB">
         update afb
-        set afb_name=#{afb_name},
+        set afb_deviceID=#{afb_deviceID},
             afb_number=#{afb_number},
             afb_bDate=#{afb_bDate},
             afb_rDate=#{afb_rDate},
@@ -35,4 +53,13 @@
             afb_isPermited=#{afb_isPermited}
         where afb_ID = #{afb_ID}
     </update>
+
+    <select id="getAFBList" resultMap="AFBListResultMap">
+        select afb.*, device.d_name, faculty.f_name
+        from afb,
+             device,
+             faculty
+        where afb.afb_deviceID = device.d_ID
+          and afb.afb_facultyID = faculty.f_ID
+    </select>
 </mapper>

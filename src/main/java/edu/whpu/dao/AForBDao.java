@@ -14,4 +14,6 @@ public interface AForBDao {
     public int deleteAForB(int afb_ID);
 
     public int updateAForB(AForB aForB);
+
+    public List<AForB> getAFBList();
 }

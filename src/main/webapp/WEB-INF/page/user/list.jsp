@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>用户信息</title>
+    <title>用户列表</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"

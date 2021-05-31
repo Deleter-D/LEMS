@@ -64,10 +64,11 @@ public class DeviceController {
         User user = (User) session.getAttribute("user");
         if (user.getU_identity().equals("1")) {
             mv.setViewName("device/add");
+            return mv;
         } else {
             mv.setViewName("welcome");
+            return mv;
         }
-        return mv;
     }
 
     @RequestMapping(value = "/divicesubmit", method = RequestMethod.POST)
@@ -87,13 +88,12 @@ public class DeviceController {
             int i = deviceService.addDevice(device);
             System.out.println("添加" + i + "个设备");
             mv.setViewName("/device/add");
-            return mv;
         } else {
             int i = deviceService.updateDevice(device);
             System.out.println("更新" + i + "个设备");
             mv.setViewName("/device/list");
-            return mv;
         }
+        return mv;
     }
 
     @RequestMapping("/deletedevice")

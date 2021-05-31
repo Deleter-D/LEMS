@@ -36,7 +36,7 @@ public class afbDaoTest {
 
     @Test
     public void insertAForB() {
-        AForB aForB = new AForB("粒子对撞机", 1, new Date(), new Date(), "对撞", "李四", "17462634758", 6, 0);
+        AForB aForB = new AForB(5, 1, new Date(), new Date(), "对撞", "李四", "17462634758", 6, 0);
         int count = aForBDao.insertAForB(aForB);
         System.out.println(count);
     }
@@ -53,5 +53,13 @@ public class afbDaoTest {
         aForB.setAfb_usefor("超级计算");
         int count = aForBDao.updateAForB(aForB);
         System.out.println(count);
+    }
+
+    @Test
+    public void getAFBListTest() {
+        List<AForB> afbList = aForBDao.getAFBList();
+        for (AForB aForB : afbList) {
+            System.out.println(aForB);
+        }
     }
 }

@@ -32,7 +32,7 @@
           <cite>购买申请列表</cite></a>
       </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
-       href="${ctx }/employee/list" title="刷新">
+       href="${ctx }/afp/list" title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
 </div>
 <div class="x-body">
@@ -68,7 +68,7 @@
             <th>保质期</th>
             <th>管理员</th>
             <th>学院</th>
-            <th>是否批准</th>
+            <th>状态</th>
             <th>处理</th>
         </thead>
         <tbody>
@@ -88,8 +88,9 @@
                 <td>${afp.admin.u_name}</td>
                 <td>${afp.faculty.f_name}</td>
                 <td>
-                    <c:if test="${afp.afp_isPermited=='0'}">未批准</c:if>
+                    <c:if test="${afp.afp_isPermited=='0'}">未处理</c:if>
                     <c:if test="${afp.afp_isPermited=='1'}">已批准</c:if>
+                    <c:if test="${afp.afp_isPermited=='-1'}">已驳回</c:if>
                 </td>
 
                 <!--  <td class="td-status">
@@ -99,10 +100,10 @@
                        <i class="layui-icon">&#xe601;</i>
                      </a> -->
                         <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
-                    <a title="编辑" href="${ctx}/employee/add?id=${afp.afp_ID}">
+                    <a title="批准" href="${ctx}/afp/permit?id=${afp.afp_ID}">
                         <i class="layui-icon">&#xe642;</i>
                     </a>
-                    <a title="删除" onclick="member_del(this,'${afp.afp_ID}')" href="javascript:;">
+                    <a title="驳回" href="${ctx}/afp/dispermit?id=${afp.afp_ID}">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
@@ -163,7 +164,7 @@
     }*/
 
     /*用户-删除*/
-    function member_del(obj, id) {
+    /*function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
             //发异步删除数据
             //等以后再使用异步，这里先使用
@@ -171,7 +172,7 @@
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
         });
-    }
+    }*/
 
 
     /*function delAll(argument) {
