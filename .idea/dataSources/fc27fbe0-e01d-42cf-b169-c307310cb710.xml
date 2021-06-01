@@ -1036,7 +1036,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="304" parent="288" name="afb_isPermited">
       <Position>10</Position>
-      <Comment>是否批准(0-未批准 1-已批准)</Comment>
+      <Comment>是否批准(0-未处理 1-已批准 -1-已驳回)</Comment>
       <DataType>int|0s</DataType>
     </column>
     <index id="305" parent="288" name="afb_deviceID">
@@ -1068,10 +1068,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="311" parent="289" name="aflpa_name">
+    <column id="311" parent="289" name="aflpa_lpaID">
       <Position>2</Position>
-      <Comment>名称</Comment>
-      <DataType>varchar(20)|0s</DataType>
+      <Comment>低值耗材ID</Comment>
+      <DataType>int|0s</DataType>
     </column>
     <column id="312" parent="289" name="aflpa_number">
       <Position>3</Position>
@@ -1109,7 +1109,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>int|0s</DataType>
     </column>
     <index id="319" parent="289" name="aflpa_name">
-      <ColNames>aflpa_name</ColNames>
+      <ColNames>aflpa_lpaID</ColNames>
       <Type>btree</Type>
     </index>
     <index id="320" parent="289" name="aflpa_facultyID">
@@ -1121,307 +1121,302 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <ColNames>aflpa_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="322" parent="289" name="aflpa_name">
-      <ColNames>aflpa_name</ColNames>
-      <RefTableName>lpa</RefTableName>
-      <RefColNames>lpa_name</RefColNames>
-    </foreign-key>
-    <foreign-key id="323" parent="289" name="aflpa_facultyID">
+    <foreign-key id="322" parent="289" name="aflpa_facultyID">
       <ColNames>aflpa_facultyID</ColNames>
       <RefTableName>faculty</RefTableName>
       <RefColNames>f_ID</RefColNames>
     </foreign-key>
-    <column id="324" parent="290" name="afp_ID">
+    <column id="323" parent="290" name="afp_ID">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="325" parent="290" name="afp_name">
+    <column id="324" parent="290" name="afp_name">
       <Position>2</Position>
       <Comment>设备名</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="326" parent="290" name="afp_price">
+    <column id="325" parent="290" name="afp_price">
       <Position>3</Position>
       <Comment>单价</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
     </column>
-    <column id="327" parent="290" name="afp_number">
+    <column id="326" parent="290" name="afp_number">
       <Position>4</Position>
       <Comment>数量</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="328" parent="290" name="afp_dateForP">
+    <column id="327" parent="290" name="afp_dateForP">
       <Position>5</Position>
       <Comment>购置日期</Comment>
       <DataType>date|0s</DataType>
     </column>
-    <column id="329" parent="290" name="afp_manufacturer">
+    <column id="328" parent="290" name="afp_manufacturer">
       <Position>6</Position>
       <Comment>生产厂家</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="330" parent="290" name="afp_shelfLife">
+    <column id="329" parent="290" name="afp_shelfLife">
       <Position>7</Position>
       <Comment>保质期</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="331" parent="290" name="afp_adminID">
+    <column id="330" parent="290" name="afp_adminID">
       <Position>8</Position>
       <Comment>经办人ID</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="332" parent="290" name="afp_facultyID">
+    <column id="331" parent="290" name="afp_facultyID">
       <Position>9</Position>
       <Comment>院系ID</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="333" parent="290" name="afp_isPermited">
+    <column id="332" parent="290" name="afp_isPermited">
       <Position>10</Position>
       <Comment>是否批准(0-未处理 1-已批准 -1-已驳回)</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <index id="334" parent="290" name="afp_adminID">
+    <index id="333" parent="290" name="afp_adminID">
       <ColNames>afp_adminID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="335" parent="290" name="afp_facultyID">
+    <index id="334" parent="290" name="afp_facultyID">
       <ColNames>afp_facultyID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="336" parent="290" name="PRIMARY">
+    <key id="335" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>afp_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="337" parent="290" name="afp_adminID">
+    <foreign-key id="336" parent="290" name="afp_adminID">
       <ColNames>afp_adminID</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>u_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="338" parent="290" name="afp_facultyID">
+    <foreign-key id="337" parent="290" name="afp_facultyID">
       <ColNames>afp_facultyID</ColNames>
       <RefTableName>faculty</RefTableName>
       <RefColNames>f_ID</RefColNames>
     </foreign-key>
-    <column id="339" parent="291" name="d_ID">
+    <column id="338" parent="291" name="d_ID">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="340" parent="291" name="d_name">
+    <column id="339" parent="291" name="d_name">
       <Position>2</Position>
       <Comment>名称</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="341" parent="291" name="d_price">
+    <column id="340" parent="291" name="d_price">
       <Position>3</Position>
       <Comment>单价</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
     </column>
-    <column id="342" parent="291" name="d_number">
+    <column id="341" parent="291" name="d_number">
       <Position>4</Position>
       <Comment>数量</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="343" parent="291" name="d_dateForP">
+    <column id="342" parent="291" name="d_dateForP">
       <Position>5</Position>
       <Comment>购置日期</Comment>
       <DataType>date|0s</DataType>
     </column>
-    <column id="344" parent="291" name="d_manufacturer">
+    <column id="343" parent="291" name="d_manufacturer">
       <Position>6</Position>
       <Comment>生产厂家</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="345" parent="291" name="d_shelfLife">
+    <column id="344" parent="291" name="d_shelfLife">
       <Position>7</Position>
       <Comment>保质期</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="346" parent="291" name="d_adminID">
+    <column id="345" parent="291" name="d_adminID">
       <Position>8</Position>
       <Comment>经办人ID</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="347" parent="291" name="d_facultyID">
+    <column id="346" parent="291" name="d_facultyID">
       <Position>9</Position>
       <Comment>院系ID</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="348" parent="291" name="d_isBorrowed">
+    <column id="347" parent="291" name="d_isBorrowed">
       <Position>10</Position>
       <Comment>是否借出(0-未借出   1-已借出)</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <index id="349" parent="291" name="d_name">
+    <index id="348" parent="291" name="d_name">
       <ColNames>d_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="350" parent="291" name="d_adminID">
+    <index id="349" parent="291" name="d_adminID">
       <ColNames>d_adminID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="351" parent="291" name="d_facultyID">
+    <index id="350" parent="291" name="d_facultyID">
       <ColNames>d_facultyID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="352" parent="291" name="PRIMARY">
+    <key id="351" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>d_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="353" parent="291" name="d_adminID">
+    <foreign-key id="352" parent="291" name="d_adminID">
       <ColNames>d_adminID</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>u_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="354" parent="291" name="d_facultyID">
+    <foreign-key id="353" parent="291" name="d_facultyID">
       <ColNames>d_facultyID</ColNames>
       <RefTableName>faculty</RefTableName>
       <RefColNames>f_ID</RefColNames>
     </foreign-key>
-    <column id="355" parent="292" name="f_ID">
+    <column id="354" parent="292" name="f_ID">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="356" parent="292" name="f_name">
+    <column id="355" parent="292" name="f_name">
       <Position>2</Position>
       <Comment>院系名称</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="292" name="f_deanName">
+    <column id="356" parent="292" name="f_deanName">
       <Position>3</Position>
       <Comment>系主任姓名</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="358" parent="292" name="f_deanTele">
+    <column id="357" parent="292" name="f_deanTele">
       <Position>4</Position>
       <Comment>系主任电话</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <key id="359" parent="292" name="PRIMARY">
+    <key id="358" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>f_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="360" parent="293" name="lpa_ID">
+    <column id="359" parent="293" name="lpa_ID">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="361" parent="293" name="lpa_name">
+    <column id="360" parent="293" name="lpa_name">
       <Position>2</Position>
       <Comment>名称</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="362" parent="293" name="lpa_price">
+    <column id="361" parent="293" name="lpa_price">
       <Position>3</Position>
       <Comment>单价</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
     </column>
-    <column id="363" parent="293" name="lpa_number">
+    <column id="362" parent="293" name="lpa_number">
       <Position>4</Position>
       <Comment>数量</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="364" parent="293" name="lpa_dateForP">
+    <column id="363" parent="293" name="lpa_dateForP">
       <Position>5</Position>
       <Comment>购置日期</Comment>
       <DataType>date|0s</DataType>
     </column>
-    <column id="365" parent="293" name="lpa_manufacturer">
+    <column id="364" parent="293" name="lpa_manufacturer">
       <Position>6</Position>
       <Comment>生产厂家</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="366" parent="293" name="lpa_shelfLife">
+    <column id="365" parent="293" name="lpa_shelfLife">
       <Position>7</Position>
       <Comment>保质期</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="367" parent="293" name="lpa_adminID">
+    <column id="366" parent="293" name="lpa_adminID">
       <Position>8</Position>
       <Comment>经办人ID</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <index id="368" parent="293" name="lpa_name">
+    <index id="367" parent="293" name="lpa_name">
       <ColNames>lpa_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="369" parent="293" name="lpa_adminID">
+    <index id="368" parent="293" name="lpa_adminID">
       <ColNames>lpa_adminID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="370" parent="293" name="PRIMARY">
+    <key id="369" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>lpa_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="371" parent="293" name="lpa_adminID">
+    <foreign-key id="370" parent="293" name="lpa_adminID">
       <ColNames>lpa_adminID</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>u_ID</RefColNames>
     </foreign-key>
-    <column id="372" parent="294" name="u_ID">
+    <column id="371" parent="294" name="u_ID">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="373" parent="294" name="u_account">
+    <column id="372" parent="294" name="u_account">
       <Position>2</Position>
       <Comment>用户账户</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="294" name="u_password">
+    <column id="373" parent="294" name="u_password">
       <Position>3</Position>
       <Comment>用户密码</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="375" parent="294" name="u_name">
+    <column id="374" parent="294" name="u_name">
       <Position>4</Position>
       <Comment>用户姓名</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="376" parent="294" name="u_tele">
+    <column id="375" parent="294" name="u_tele">
       <Position>5</Position>
       <Comment>用户电话</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="377" parent="294" name="u_facultyID">
+    <column id="376" parent="294" name="u_facultyID">
       <Position>6</Position>
       <Comment>院系ID</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="378" parent="294" name="u_identity">
+    <column id="377" parent="294" name="u_identity">
       <Position>7</Position>
       <Comment>身份标识(0-普通用户  1-管理员)</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <index id="379" parent="294" name="u_ID">
+    <index id="378" parent="294" name="u_ID">
       <ColNames>u_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="380" parent="294" name="u_facultyID">
+    <index id="379" parent="294" name="u_facultyID">
       <ColNames>u_facultyID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="381" parent="294" name="PRIMARY">
+    <key id="380" parent="294" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>u_ID
 u_account</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="382" parent="294" name="u_facultyID">
+    <foreign-key id="381" parent="294" name="u_facultyID">
       <ColNames>u_facultyID</ColNames>
       <RefTableName>faculty</RefTableName>
       <RefColNames>f_ID</RefColNames>

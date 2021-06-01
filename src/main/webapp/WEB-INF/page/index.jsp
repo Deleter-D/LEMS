@@ -159,20 +159,20 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b4;</i>
-                    <cite>下载中心</cite>
+                    <cite>低值耗材领用</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="${ctx }/document/list">
+                        <a _href="${ctx }/aflpa/list">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>文档查询</cite>
+                            <cite>领用申请列表</cite>
                         </a>
                     </li>
                     <li>
-                        <a _href="${ctx }/document/add">
+                        <a _href="${ctx }/aflpa/add">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>上传文档</cite>
+                            <cite>添加领用申请</cite>
                         </a>
                     </li>
                 </ul>

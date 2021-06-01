@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.whpu.dao.AForLPADao">
+    <resultMap id="aflpaListResultMap" type="AForLPA">
+        <id property="aflpa_ID" column="aflpa_ID"/>
+        <result property="aflpa_number" column="aflpa_number"/>
+        <result property="aflpa_bDate" column="aflpa_bDate"/>
+        <result property="aflpa_useFor" column="aflpa_useFor"/>
+        <result property="aflpa_bName" column="aflpa_bName"/>
+        <result property="aflpa_bTele" column="aflpa_bTele"/>
+        <result property="aflpa_isPermited" column="aflpa_isPermited"/>
+        <association property="lpa" javaType="LPA">
+            <id property="lpa_ID" column="lpa_ID"/>
+            <result property="lpa_name" column="lpa_name"/>
+        </association>
+        <association property="faculty" javaType="Faculty">
+            <id property="f_ID" column="f_ID"/>
+            <result property="f_name" column="f_name"/>
+        </association>
+    </resultMap>
     <select id="getAllAForLPA" resultType="AForLPA">
         select *
         from aflpa
@@ -12,9 +29,9 @@
         where aflpa_ID = #{aflpa_ID}
     </select>
     <insert id="insertAForLPA" parameterType="AForLPA">
-        insert into aflpa(aflpa_name, aflpa_number, aflpa_bDate, aflpa_useFor, aflpa_bName, aflpa_bTele,
+        insert into aflpa(aflpa_lpaID, aflpa_number, aflpa_bDate, aflpa_useFor, aflpa_bName, aflpa_bTele,
                           aflpa_facultyID, aflpa_isPermited)
-        values (#{aflpa_name}, #{aflpa_number}, #{aflpa_bDate}, #{aflpa_useFor}, #{aflpa_bName}, #{aflpa_bTele},
+        values (#{aflpa_lpaID}, #{aflpa_number}, #{aflpa_bDate}, #{aflpa_useFor}, #{aflpa_bName}, #{aflpa_bTele},
                 #{aflpa_facultyID}, #{aflpa_isPermited})
     </insert>
     <delete id="deleteAForLPA" parameterType="int">
@@ -24,7 +41,7 @@
     </delete>
     <update id="updateAForLPA" parameterType="AForLPA">
         update aflpa
-        set aflpa_name=#{aflpa_name},
+        set aflpa_lpaID=#{aflpa_lpaID},
             aflpa_number=#{aflpa_number},
             aflpa_bDate=#{aflpa_bDate},
             aflpa_useFor=#{aflpa_useFor},
@@ -34,4 +51,13 @@
             aflpa_isPermited=#{aflpa_isPermited}
         where aflpa_ID = #{aflpa_ID}
     </update>
+
+    <select id="getAFLPAList" resultMap="aflpaListResultMap">
+        select aflpa.*, lpa.lpa_name, faculty.f_name
+        from aflpa,
+             lpa,
+             faculty
+        where aflpa.aflpa_lpaID = lpa.lpa_ID
+          and aflpa.aflpa_facultyID = faculty.f_ID
+    </select>
 </mapper>

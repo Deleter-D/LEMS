@@ -1,6 +1,7 @@
 package edu.whpu.dao;
 
 import edu.whpu.pojo.AForLPA;
+import edu.whpu.pojo.LPA;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface AForLPADao {
     public int deleteAForLPA(int aflpa_ID);
 
     public int updateAForLPA(AForLPA aForLPA);
+
+    public List<AForLPA> getAFLPAList();
 }

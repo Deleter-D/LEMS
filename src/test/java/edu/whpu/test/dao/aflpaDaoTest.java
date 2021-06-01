@@ -35,7 +35,7 @@ public class aflpaDaoTest {
 
     @Test
     public void insertAForLPATest() {
-        AForLPA aForLPA = new AForLPA("显卡", 1, new Date(), "装机", "李四", "18498374592", 3, 0);
+        AForLPA aForLPA = new AForLPA(1, 1, new Date(), "装机", "李四", "18498374592", 3, 0);
         int count = aForLPADao.insertAForLPA(aForLPA);
         System.out.println(count);
     }
