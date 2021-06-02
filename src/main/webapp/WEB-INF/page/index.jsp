@@ -30,10 +30,10 @@
 
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;"><i class="layui-icon">&#xe66f;</i> ${sessionScope.user.u_name}</a>
+            <a href="javascript:;"><i class="iconfont">&#xe753;</i> ${sessionScope.user.u_name}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
                 <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
-                <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
+                <dd><a href="/">切换帐号</a></dd>
                 <dd><a href="/">退出</a></dd>
             </dl>
         </li>
@@ -49,7 +49,7 @@
         <ul id="nav">
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe6b8;</i>
+                    <i class="layui-icon">&#xe770;</i>
                     <cite>用户管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
@@ -71,7 +71,7 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe723;</i>
+                    <i class="layui-icon">&#xe631;</i>
                     <cite>设备管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
@@ -92,7 +92,7 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe723;</i>
+                    <i class="layui-icon">&#xe60a;</i>
                     <cite>低值耗材管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
@@ -114,7 +114,7 @@
 
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe726;</i>
+                    <i class="layui-icon">&#xe62d;</i>
                     <cite>购买申请</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
@@ -135,7 +135,7 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe6ce;</i>
+                    <i class="layui-icon">&#xe62d;</i>
                     <cite>设备借用申请</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
@@ -158,7 +158,7 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe6b4;</i>
+                    <i class="layui-icon">&#xe62d;</i>
                     <cite>低值耗材领用</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>

@@ -102,10 +102,10 @@
                      </a> -->
                         <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
                     <a title="编辑" href="${ctx}/aflpa/permit?id=${aflpa.aflpa_ID}">
-                        <i class="layui-icon">&#xe642;</i>
+                        <i class="layui-icon">&#xe605;</i>
                     </a>
                     <a title="删除" href="${ctx}/aflpa/dispermit?id=${aflpa.aflpa_ID}">
-                        <i class="layui-icon">&#xe640;</i>
+                        <i class="layui-icon">&#x1006;</i>
                     </a>
                 </td>
             </tr>

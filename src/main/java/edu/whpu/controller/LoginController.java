@@ -25,7 +25,7 @@ public class LoginController {
         } else {
             System.out.println("登录失败");
             mv.addObject("message", "账号或密码错误，请重新输入");
-            mv.setViewName("forward:/loginForm");
+            mv.setViewName("loginForm");
         }
 
         return mv;

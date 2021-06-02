@@ -26,7 +26,7 @@
 <div class="login layui-anim layui-anim-up">
     <div class="message">用户登录</div>
     <div id="darkbannerwrap"></div>
-    ${requestScope.message}
+    <div><span class="x-red"> ${requestScope.message} </span></div>
     <form method="post" class="layui-form" action="${ctx}/login">
         <input name="loginname" placeholder="用户名" value="${loginname }" type="text" lay-verify="required"
                class="layui-input">

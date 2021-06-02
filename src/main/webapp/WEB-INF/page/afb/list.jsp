@@ -99,10 +99,10 @@
                 </td>
                 <td class="td-manage">
                     <a title="批准" href="${ctx}/afb/permit?id=${afb.afb_ID}">
-                        <i class="layui-icon">&#xe642;</i>
+                        <i class="layui-icon">&#xe605;</i>
                     </a>
                     <a title="驳回" href="${ctx}/afb/dispermit?id=${afb.afb_ID}">
-                        <i class="layui-icon">&#xe640;</i>
+                        <i class="layui-icon">&#x1006;</i>
                     </a>
                 </td>
             </tr>
