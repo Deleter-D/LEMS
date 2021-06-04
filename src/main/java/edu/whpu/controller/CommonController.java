@@ -17,6 +17,12 @@ public class CommonController {
         return mv;
     }
 
+    @RequestMapping("/userInfo")
+    public ModelAndView userInfo(ModelAndView mv) {
+        mv.setViewName("userInfo");
+        return mv;
+    }
+
     @RequestMapping("/index")
     public ModelAndView index(ModelAndView mv) {
         mv.setViewName("index");

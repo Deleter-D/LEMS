@@ -32,7 +32,8 @@
         <li class="layui-nav-item">
             <a href="javascript:;"><i class="iconfont">&#xe753;</i> ${sessionScope.user.u_name}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
+                <%--                <dd><a onclick="x_admin_show('个人信息','/user/add')">个人信息</a></dd>--%>
+                <dd><a onclick="userInfo('/userInfo')">个人信息</a></dd>
                 <dd><a href="/">切换帐号</a></dd>
                 <dd><a href="/">退出</a></dd>
             </dl>
@@ -206,10 +207,59 @@
 
 </body>
 <script>
-    <%--function identifyUser(){--%>
-    <%--    if(${sessionScope.user.u_identity}=="1"){--%>
-    <%--        document.getElementById("userlistbutton").onclick=function (){alert('对不起，你没有权限！')}--%>
-    <%--    }--%>
-    <%--}--%>
+    function userInfo(url) {
+        layer.open({
+            title: '个人信息'
+            , type: 2
+            , content: url
+            , area: ['500px', '500px']
+            , btn: ['返回']
+            , btn1: function (index, layero) {
+                layer.close(layer.index);
+            }
+        })
+    }
+
+    /*function changeUser(url) {
+        layer.open({
+            title: '个人信息'
+            , type: 2
+            , content: url
+            , btn: ['确认', '返回']
+            /!*, success: function (layero, index) {
+                layero.addClass('layui-form');
+                layero.find('.layui-layer-btn0').attr({
+                    'lay-filter': 'changeUser',
+                    'lay-submit': ''
+                });
+                form.render('checkbox');
+            }*!/
+            , yes: function (index, layero) {
+                /!*form.on('submit(changeUser)', function (data) {
+
+                });*!/
+
+                var inputForm = $(window.frames["layui-layer-iframe" + index].document).contents().find("#changeUserForm");
+                inputForm.ajaxSubmit({
+                    url: "/login",
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.data === 'ok') {
+                            layer.close(layer.index);
+                        }
+                    }
+                });
+                location.reload('tab(xbs_tab)', {
+                    page: {
+                        curr: 1
+                    }
+                }, 'data');
+            }
+            , btn2: function (index, layero) {
+                layer.close(layer.index);
+            }
+        });
+    }*/
 </script>
 </html>

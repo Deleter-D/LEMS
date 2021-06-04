@@ -181,13 +181,20 @@ function x_admin_show(title,url,w,h){
     };
     layer.open({
         type: 2,
+        btn:['返回'],
+        btn1:function (index,layero){
+            layer.close(layer.index);
+        },
+        end:function (){
+            location.replace("welcome");
+        },
         area: [w+'px', h +'px'],
         fix: false, //不固定
         maxmin: true,
         shadeClose: true,
         shade:0.4,
-        title: title,
-        content: url
+        title: '个人信息',
+        content: url,
     });
 }
 
@@ -196,5 +203,4 @@ function x_admin_close(){
     var index = parent.layer.getFrameIndex(window.name);
     parent.layer.close(index);
 }
-
 

@@ -356,7 +356,7 @@ xblock{
     float: right;
     font-size: 16px;
 }
-.x-slide_left {
+/*.x-slide_left {
     width: 17px;
     height: 61px;
     background: url(../images/icon.png) 0 0 no-repeat;
@@ -365,7 +365,7 @@ xblock{
     left: 221px;
     cursor: pointer;
     z-index: 3;
-}
+}*/
 .page-content{
     position: absolute;
     top: 46px;
