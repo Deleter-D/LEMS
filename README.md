@@ -4,6 +4,6 @@
 
 本项目是不成熟的大三学生的课程设计产物，有需要的同学可以参考借鉴，也欢迎各位大佬前来指导。
 
-![home-page](images\image-20210609112730161.png)
+![home-page](https://github.com/Deleter-D/LEMS/blob/main/images/image-20210609112730161.png)
 
-![image-20210609112902958](images\image-20210609112902958.png)
+![image-20210609112902958](https://github.com/Deleter-D/LEMS/blob/main/images/image-20210609112902958.png)
