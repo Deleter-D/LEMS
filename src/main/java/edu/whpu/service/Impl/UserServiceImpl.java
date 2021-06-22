@@ -39,4 +39,14 @@ public class UserServiceImpl implements UserService {
     public int deleteUser(int u_ID) {
         return userDao.deleteUser(u_ID);
     }
+
+    @Override
+    public List<User> getUserByAccount(String u_account) {
+        return userDao.quaryByAccount(u_account);
+    }
+
+    @Override
+    public List<User> getUserByName(String u_name) {
+        return userDao.quaryByName(u_name);
+    }
 }

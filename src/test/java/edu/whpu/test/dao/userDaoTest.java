@@ -82,4 +82,20 @@ public class userDaoTest {
         User user = userDao.userLogin("1805110274", "adminwyp", "1");
         System.out.println(user);
     }
+
+    @Test
+    public void likeTest() {
+        List<User> userList = userDao.quaryByAccount("09");
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void likeTest2() {
+        List<User> userList = userDao.quaryByName("王");
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
 }

@@ -24,4 +24,8 @@ public interface UserDao {
     public List<User> getUserList();
 
     public List<User> getAllAdmin();
+
+    public List<User> quaryByAccount(String u_account);
+
+    public List<User> quaryByName(String u_name);
 }

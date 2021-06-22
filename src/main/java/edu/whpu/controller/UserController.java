@@ -88,4 +88,23 @@ public class UserController {
         mv.setViewName("/user/list");
         return mv;
     }
+
+    @RequestMapping("/quary")
+    public ModelAndView quaryUser(ModelAndView mv, String quaryFlag, String content, HttpServletRequest request) {
+
+        request.setAttribute("quaryFlag", quaryFlag);
+        request.setAttribute("content", content);
+
+        List<User> userList;
+        if (quaryFlag.equals("1")) {
+            userList = userService.getUserByName(content);
+        } else if (quaryFlag.equals("2")) {
+            userList = userService.getUserByAccount(content);
+        } else {
+            userList = userService.getUserList();
+        }
+        request.setAttribute("userlist", userList);
+        mv.setViewName("/user/list");
+        return mv;
+    }
 }

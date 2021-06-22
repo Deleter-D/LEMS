@@ -63,4 +63,16 @@
         from user
         where u_identity = '1'
     </select>
+
+    <select id="quaryByAccount" resultType="User">
+        select *
+        from user
+        where u_account like concat(concat('%', #{u_account}), '%')
+    </select>
+
+    <select id="quaryByName" resultType="User">
+        select *
+        from user
+        where u_name like concat(concat('%', #{u_name}), '%')
+    </select>
 </mapper>

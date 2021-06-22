@@ -16,4 +16,8 @@ public interface UserService {
     public int addUser(User user);
 
     public int deleteUser(int u_ID);
+
+    public List<User> getUserByAccount(String u_account);
+
+    public List<User> getUserByName(String u_name);
 }
