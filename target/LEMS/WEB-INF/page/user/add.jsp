@@ -16,11 +16,6 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="${ctx}/public/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="${ctx}/public/js/xadmin.js"></script>
-    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -78,10 +73,6 @@
             <label for="userAdd" class="layui-form-label">
                 <span class="x-red">*</span>学院
             </label>
-            <%--<div class="layui-input-inline">
-                <input type="text" id="faculty" name="faculty" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input" value="${job.password }">
-            </div>--%>
             <div class="layui-input-inline">
                 <select id="u_facultyID" name="u_facultyID">
                     <option value=""></option>
@@ -127,12 +118,6 @@
 
         //自定义验证规则
         form.verify({
-            /*nikename: function (value) {
-                if (value.length < 5) {
-                    return '昵称至少得5个字符啊';
-                }
-            },
-            pass: [/(.+){6,12}$/, '密码必须6到12位'],*/
             repass: function (value) {
                 if ($('#u_password').val() !== $('#repassword').val()) {
                     return '两次密码不一致';
@@ -159,7 +144,5 @@
 
     });
 </script>
-
 </body>
-
 </html>

@@ -43,12 +43,14 @@
     </update>
 
     <!--服务层所需操作-->
-    <select id="userLogin" parameterType="string" resultType="User">
-        select *
-        from user
-        where u_account = #{u_account}
-          AND u_password = #{u_password}
-          AND u_identity = #{u_identity}
+    <select id="userLogin" parameterType="string" resultMap="userListResultMap">
+        select user.*, faculty.f_name
+        from user,
+             faculty
+        where user.u_account = #{u_account}
+          AND user.u_password = #{u_password}
+          AND user.u_identity = #{u_identity}
+          AND user.u_facultyID = faculty.f_ID
     </select>
 
     <select id="getUserList" resultMap="userListResultMap">

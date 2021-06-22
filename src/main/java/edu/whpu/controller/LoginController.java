@@ -20,6 +20,7 @@ public class LoginController {
     public ModelAndView login(@RequestParam("loginname") String loginname, @RequestParam("password") String password, @RequestParam("identity") String identity, HttpSession session, ModelAndView mv) {
         User user = loginServie.login(loginname, password, identity);
         if (user != null) {
+
             session.setAttribute("user", user);
             mv.setViewName("/index");
         } else {

@@ -22,19 +22,32 @@
 
 </head>
 <body class="login-bg">
-<div>
-    <div>用户姓名：${sessionScope.user.u_name}</div>
-    <hr class="hr15">
-    <div>个人账号：${sessionScope.user.u_account}</div>
-    <hr class="hr15">
-    <div>联系方式：${sessionScope.user.u_tele}</div>
-    <hr class="hr15">
-    <div>学院：${sessionScope.user.faculty.f_name}</div>
-    <hr class="hr15">
-    <div>权限：
-        <c:if test="${sessionScope.user.u_identity=='0'}">普通用户</c:if>
-        <c:if test="${sessionScope.user.u_identity=='1'}">管理员</c:if>
-    </div>
-</div>
+<table class="layui-table" lay-even>
+    <tbody>
+    <tr>
+        <td>用户姓名</td>
+        <td>${sessionScope.user.u_name}</td>
+    </tr>
+    <tr>
+        <td>个人账号</td>
+        <td>${sessionScope.user.u_account}</td>
+    </tr>
+    <tr>
+        <td>联系方式</td>
+        <td>${sessionScope.user.u_tele}</td>
+    </tr>
+    <tr>
+        <td>学院</td>
+        <td>${sessionScope.user.faculty.f_name}</td>
+    </tr>
+    <tr>
+        <td>权限</td>
+        <td>
+            <c:if test="${sessionScope.user.u_identity=='0'}">普通用户</c:if>
+            <c:if test="${sessionScope.user.u_identity=='1'}">管理员</c:if>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
