@@ -49,4 +49,9 @@ public class DeviceServiceImpl implements DeviceService {
     public int updateDevice(Device device) {
         return deviceDao.updateDevice(device);
     }
+
+    @Override
+    public List<Device> getDeviceByName(String d_name) {
+        return deviceDao.quaryByName(d_name);
+    }
 }

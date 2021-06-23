@@ -62,4 +62,13 @@
         where afb.afb_deviceID = device.d_ID
           and afb.afb_facultyID = faculty.f_ID
     </select>
+    <select id="quaryAFBByF" resultMap="AFBListResultMap">
+        select afb.*, device.d_name, faculty.f_name
+        from afb,
+             device,
+             faculty
+        where afb.afb_deviceID = device.d_ID
+          and afb.afb_facultyID = faculty.f_ID
+          and afb.afb_facultyID = #{afb_facultyID}
+    </select>
 </mapper>

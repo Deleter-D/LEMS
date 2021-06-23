@@ -18,4 +18,6 @@ public interface AFLPAService {
     public AForLPA getAFLPAById(int aflpa_ID);
 
     public int updateAFLPA(AForLPA aForLPA);
+
+    public List<AForLPA> getAFLPAByF(String aflpa_facultyID);
 }

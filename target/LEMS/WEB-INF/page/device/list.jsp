@@ -27,20 +27,22 @@
           <cite>设备列表</cite></a>
       </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
-       href="javascript:location.replace(location.href);" title="刷新">
+       href="${ctx}/device/list" title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
 </div>
 <div class="x-body">
-    <div class="layui-row" style="" align="center">
-        <form class="layui-form layui-col-md12 x-so" method="get" action="${ctx }/dept/list">
-            <!-- <input class="layui-input" placeholder="开始日" name="start" id="start">
-            <input class="layui-input" placeholder="截止日" name="end" id="end"> -->
-            <input type="text" name="content" style="width:50%;" placeholder="请输入查找内容" autocomplete="off"
-                   class="layui-input">
-            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-        </form>
-    </div>
-
+    <form class="layui-form" method="post" action="/device/quary">
+        <div class="layui-row">
+            <div class="layui-col-md5 layui-col-md-offset3">
+                <input type="text" id="content" name="content" style="width:100%;" placeholder="请输入查找内容"
+                       autocomplete="off"
+                       class="layui-input" value="${requestScope.content}">
+            </div>
+            <div class="layui-col-md1">
+                <input type="submit" value="搜索" class="layui-btn" lay-submit lay-filter="quary">
+            </div>
+        </div>
+    </form>
     <table class="layui-table">
         <thead>
         <tr>

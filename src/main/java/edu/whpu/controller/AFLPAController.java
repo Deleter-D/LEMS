@@ -35,6 +35,8 @@ public class AFLPAController {
     public ModelAndView aflpaList(ModelAndView mv, HttpSession session, HttpServletRequest request) {
         User user = (User) session.getAttribute("user");
         List<AForLPA> aflpaList = aflpaService.getAFLPAList();
+        List<Faculty> facultyList = aflpaService.getAllFaculty();
+        request.setAttribute("facultyList", facultyList);
         request.setAttribute("aflpaList", aflpaList);
         if (user.getU_identity().equals("1")) {
             mv.setViewName("/aflpa/list");
@@ -85,4 +87,14 @@ public class AFLPAController {
         return mv;
     }
 
+    @RequestMapping("/quary")
+    public ModelAndView quaryAFLPAByF(ModelAndView mv, String facultyID, HttpServletRequest request) {
+        List<AForLPA> aForLPAList = aflpaService.getAFLPAByF(facultyID);
+        List<Faculty> facultyList = aflpaService.getAllFaculty();
+        request.setAttribute("facultyList", facultyList);
+        request.setAttribute("aflpaList", aForLPAList);
+        request.setAttribute("facultyID", facultyID);
+        mv.setViewName("/aflpa/list");
+        return mv;
+    }
 }

@@ -17,4 +17,6 @@ public interface LPAService {
     public int updateLPA(LPA lpa);
 
     public int deleteLPA(int lpa_ID);
+
+    public List<LPA> getLPAByName(String lpa_name);
 }

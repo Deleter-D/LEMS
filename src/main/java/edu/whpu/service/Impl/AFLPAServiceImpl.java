@@ -53,4 +53,9 @@ public class AFLPAServiceImpl implements AFLPAService {
     public int updateAFLPA(AForLPA aForLPA) {
         return aForLPADao.updateAForLPA(aForLPA);
     }
+
+    @Override
+    public List<AForLPA> getAFLPAByF(String aflpa_facultyID) {
+        return aForLPADao.quaryAFLPAByF(aflpa_facultyID);
+    }
 }

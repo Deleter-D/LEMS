@@ -38,9 +38,9 @@ public class AFBController {
     public ModelAndView afbList(ModelAndView mv, HttpSession session, HttpServletRequest request) {
         User user = (User) session.getAttribute("user");
         List<AForB> afbList = afbService.getAFBList();
-
+        List<Faculty> facultyList = afbService.getAllFaculty();
         request.setAttribute("afbList", afbList);
-
+        request.setAttribute("facultyList", facultyList);
         if (user.getU_identity().equals("1")) {
             mv.setViewName("/afb/list");
         } else {
@@ -81,12 +81,23 @@ public class AFBController {
     }
 
     @RequestMapping("/dispermit")
-    public ModelAndView afbDispermit(ModelAndView mv,String id){
+    public ModelAndView afbDispermit(ModelAndView mv, String id) {
         int afb_ID = Integer.parseInt(id);
         AForB afb = afbService.getAFBById(afb_ID);
         afb.setAfb_isPermited(-1);
         int i = afbService.updateAFB(afb);
         System.out.println("驳回" + i + "张借用申请表");
+        mv.setViewName("/afb/list");
+        return mv;
+    }
+
+    @RequestMapping("/quary")
+    public ModelAndView quaryAFBByF(ModelAndView mv, String facultyID, HttpServletRequest request) {
+        List<AForB> aForBList = afbService.getAFBByF(facultyID);
+        List<Faculty> facultyList = afbService.getAllFaculty();
+        request.setAttribute("afbList", aForBList);
+        request.setAttribute("facultyID", facultyID);
+        request.setAttribute("facultyList", facultyList);
         mv.setViewName("/afb/list");
         return mv;
     }

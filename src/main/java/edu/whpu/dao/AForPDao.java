@@ -16,4 +16,6 @@ public interface AForPDao {
     public int updateAForP(AForP aForP);
 
     public List<AForP> getAFPList();
+
+    public List<AForP> quaryAFPByF(String afp_facultyID);
 }

@@ -55,4 +55,9 @@ public class AFBServiceImpl implements AFBService {
     public int updateAFB(AForB aForB) {
         return aForBDao.updateAForB(aForB);
     }
+
+    @Override
+    public List<AForB> getAFBByF(String afb_facultyID) {
+        return aForBDao.quaryAFBByF(afb_facultyID);
+    }
 }

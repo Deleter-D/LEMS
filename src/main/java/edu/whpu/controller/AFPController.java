@@ -37,7 +37,9 @@ public class AFPController {
     public ModelAndView afpList(ModelAndView mv, HttpSession session, HttpServletRequest request) {
         User user = (User) session.getAttribute("user");
         List<AForP> afpList = afpService.getAFPList();
+        List<Faculty> facultyList = afpService.getAllFaculty();
         request.setAttribute("afpList", afpList);
+        request.setAttribute("facultyList", facultyList);
         if (user.getU_identity().equals("1")) {
             mv.setViewName("/afp/list");
         } else {
@@ -89,6 +91,17 @@ public class AFPController {
         afp.setAfp_isPermited(-1);
         int i = afpService.updateAFP(afp);
         System.out.println("驳回" + i + "个购买申请");
+        mv.setViewName("/afp/list");
+        return mv;
+    }
+
+    @RequestMapping("/quary")
+    public ModelAndView quaryAFPByF(ModelAndView mv, String facultyID, HttpServletRequest request) {
+        List<AForP> aForPList = afpService.getAFPByF(facultyID);
+        List<Faculty> facultyList = afpService.getAllFaculty();
+        request.setAttribute("afpList", aForPList);
+        request.setAttribute("facultyID", facultyID);
+        request.setAttribute("facultyList", facultyList);
         mv.setViewName("/afp/list");
         return mv;
     }

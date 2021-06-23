@@ -17,4 +17,6 @@ public interface AForLPADao {
     public int updateAForLPA(AForLPA aForLPA);
 
     public List<AForLPA> getAFLPAList();
+
+    public List<AForLPA> quaryAFLPAByF(String aflpa_facultyID);
 }

@@ -16,4 +16,6 @@ public interface AForBDao {
     public int updateAForB(AForB aForB);
 
     public List<AForB> getAFBList();
+
+    public List<AForB> quaryAFBByF(String afb_facultyID);
 }

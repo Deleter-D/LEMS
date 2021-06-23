@@ -104,5 +104,15 @@ public class DeviceController {
         mv.setViewName("/device/list");
         return mv;
     }
+
+    @RequestMapping("/quary")
+    public ModelAndView quaryDeviceByName(ModelAndView mv, String content, HttpServletRequest request) {
+        List<Device> deviceList = deviceService.getDeviceByName(content);
+        request.setAttribute("content", content);
+        request.setAttribute("devicelist", deviceList);
+        mv.setViewName("/device/list");
+
+        return mv;
+    }
 }
 

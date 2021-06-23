@@ -61,4 +61,13 @@
         where device.d_facultyID = faculty.f_ID
           and device.d_adminID = user.u_ID
     </select>
+    <select id="quaryByName" resultMap="deviceListResultMap">
+        select device.*, faculty.f_name, user.u_name
+        from device,
+             faculty,
+             user
+        where device.d_facultyID = faculty.f_ID
+          AND device.d_adminID = user.u_ID
+          AND device.d_name like concat(concat('%', #{d_name}), '%')
+    </select>
 </mapper>

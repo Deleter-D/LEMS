@@ -61,4 +61,14 @@
         where afp.afp_adminID = user.u_ID
           and afp.afp_facultyID = faculty.f_ID
     </select>
+
+    <select id="quaryAFPByF" resultMap="afpListResultMap">
+        select afp.*, user.u_name, faculty.f_name
+        from afp,
+             user,
+             faculty
+        where afp.afp_adminID = user.u_ID
+          and afp.afp_facultyID = faculty.f_ID
+          and afp.afp_facultyID = #{afp_facultyID}
+    </select>
 </mapper>

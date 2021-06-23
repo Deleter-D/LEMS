@@ -17,4 +17,6 @@ public interface DeviceDao {
     public int updateDevice(Device device);
 
     public List<Device> getDeviceList();
+
+    public List<Device> quaryByName(String d_name);
 }

@@ -35,16 +35,22 @@
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
 </div>
 <div class="x-body">
-    <div class="layui-row" style="" align="center">
-        <form class="layui-form layui-col-md12 x-so" method="get" action="${ctx }/afb/list">
-            <!-- <input class="layui-input" placeholder="开始日" name="start" id="start">
-            <input class="layui-input" placeholder="截止日" name="end" id="end"> -->
-            <input type="text" name="content" style="width:50%;" placeholder="请输入查找内容" autocomplete="off"
-                   class="layui-input">
-            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-        </form>
-    </div>
-
+    <form class="layui-form" method="post" action="/afb/quary">
+        <div class="layui-row">
+            <div class="layui-col-md2 layui-col-md-offset9">
+                <select name="facultyID" id="facultyID">
+                    <option value=""></option>
+                    <c:forEach items="${requestScope.facultyList}" var="faculty">
+                        <option <c:if test="${requestScope.facultyID==faculty.f_ID}"> selected </c:if>
+                                value="${faculty.f_ID}">${faculty.f_name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="layui-col-md1">
+                <input type="submit" value="筛选" class="layui-btn" lay-submit lay-filter="quary">
+            </div>
+        </div>
+    </form>
     <table class="layui-table">
         <thead>
         <tr>

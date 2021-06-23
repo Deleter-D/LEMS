@@ -101,4 +101,13 @@ public class LPAController {
         mv.setViewName("/lpa/list");
         return mv;
     }
+
+    @RequestMapping("/quary")
+    public ModelAndView quaryLPAByName(ModelAndView mv, String content, HttpServletRequest request) {
+        List<LPA> lpaList = lpaService.getLPAByName(content);
+        request.setAttribute("lpaList", lpaList);
+        request.setAttribute("content", content);
+        mv.setViewName("/lpa/list");
+        return mv;
+    }
 }

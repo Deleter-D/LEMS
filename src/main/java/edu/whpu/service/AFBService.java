@@ -19,4 +19,6 @@ public interface AFBService {
     public AForB getAFBById(int afb_ID);
 
     public int updateAFB(AForB aForB);
+
+    public List<AForB> getAFBByF(String afb_facultyID);
 }

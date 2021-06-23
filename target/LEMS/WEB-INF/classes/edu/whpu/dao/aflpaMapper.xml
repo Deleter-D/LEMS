@@ -60,4 +60,13 @@
         where aflpa.aflpa_lpaID = lpa.lpa_ID
           and aflpa.aflpa_facultyID = faculty.f_ID
     </select>
+    <select id="quaryAFLPAByF" resultMap="aflpaListResultMap">
+        select aflpa.*, lpa.lpa_name, faculty.f_name
+        from aflpa,
+             lpa,
+             faculty
+        where aflpa.aflpa_lpaID = lpa.lpa_ID
+          and aflpa.aflpa_facultyID = faculty.f_ID
+          and aflpa.aflpa_facultyID = #{aflpa.facultyID}
+    </select>
 </mapper>

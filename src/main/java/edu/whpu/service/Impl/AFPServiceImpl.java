@@ -53,4 +53,9 @@ public class AFPServiceImpl implements AFPService {
     public int updateAFP(AForP aForP) {
         return aForPDao.updateAForP(aForP);
     }
+
+    @Override
+    public List<AForP> getAFPByF(String afp_facultyID) {
+        return aForPDao.quaryAFPByF(afp_facultyID);
+    }
 }

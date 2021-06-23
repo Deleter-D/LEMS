@@ -51,4 +51,11 @@
              user
         where lpa.lpa_adminID = user.u_ID
     </select>
+    <select id="quaryByName" resultMap="LPAListResultMap">
+        select lpa.*, user.u_name
+        from lpa,
+             user
+        where lpa.lpa_adminID = user.u_ID
+          AND lpa.lpa_name like concat(concat('%', #{lpa_name}), '%')
+    </select>
 </mapper>

@@ -18,4 +18,6 @@ public interface AFPService {
     public AForP getAFPById(int afp_ID);
 
     public int updateAFP(AForP aForP);
+
+    public List<AForP> getAFPByF(String afp_facultyID);
 }

@@ -48,4 +48,9 @@ public class LPAServiceImpl implements LPAService {
     public int deleteLPA(int lpa_ID) {
         return lpaDao.deleteLPA(lpa_ID);
     }
+
+    @Override
+    public List<LPA> getLPAByName(String lpa_name) {
+        return lpaDao.quaryByName(lpa_name);
+    }
 }

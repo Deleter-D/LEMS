@@ -16,4 +16,6 @@ public interface LPADao {
     public int updateLPA(LPA lpa);
 
     public List<LPA> getLPAList();
+
+    public List<LPA> quaryByName(String lpa_name);
 }
