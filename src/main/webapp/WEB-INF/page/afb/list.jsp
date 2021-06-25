@@ -27,9 +27,6 @@
         <a>
           <cite>借用申请列表</cite></a>
       </span>
-    <button type="button" onclick="location.href='${ctx}/afb/add'" class="layui-btn layui-btn-small"
-            style="line-height:1.6em;margin-top:3px;float:innert;margin-left:75%;;"><i class="layui-icon"></i>增加
-    </button>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="${ctx }/afb/list"
        title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>

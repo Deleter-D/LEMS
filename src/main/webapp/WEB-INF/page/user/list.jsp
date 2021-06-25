@@ -26,9 +26,6 @@
         <a>
           <cite>用户信息</cite></a>
       </span>
-    <button type="button" onclick="location.href='${ctx}/user/add'" class="layui-btn layui-btn-small"
-            style="line-height:1.6em;margin-top:3px;float:innert;margin-left:75%;;"><i class="layui-icon"></i>增加
-    </button>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="${ctx}/user/list"
        title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>

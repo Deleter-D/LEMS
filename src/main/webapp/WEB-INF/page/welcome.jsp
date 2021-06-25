@@ -80,7 +80,7 @@
             </table>
         </div>
     </fieldset>
-    <blockquote class="layui-elem-quote layui-quote-nm">本系统由layui,Spring,Mybatis提供技术支持</blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm">本系统由layui,X-admin,Spring,Mybatis提供技术支持</blockquote>
 </div>
 </body>
 </html>
